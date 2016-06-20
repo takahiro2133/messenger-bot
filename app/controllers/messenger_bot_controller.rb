@@ -10,11 +10,11 @@ class MessengerBotController < ActionController::Base
 
       
   #end
+
+  def message(event, sender)
     profile = sender.get_profile[:body]
     profile_last_name = profile['last_name']
     profile_first_name = profile['first_name']
-
-  def message(event, sender)
     sender.reply({ "attachment":{
             "type":"template",
             "payload":{
