@@ -46,15 +46,8 @@ def postback(event, sender)
     end
 end
   
-  
-  def delivery(event, sender)
-  end
 
-  def postback(event, sender)
-    payload = event["postback"]["payload"]
-    case payload
-    when :something
-      #ex) process sender.reply({text: "button click event!"})
-    end
+
+  def delivery(event, sender)
   end
 end
