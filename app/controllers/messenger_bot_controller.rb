@@ -13,7 +13,8 @@ class MessengerBotController < ActionController::Base
     profile = sender.get_profile[:body]
     profile_last_name = profile['last_name']
     profile_first_name = profile['first_name']
- 
+
+  def message(event, sender)
     sender.reply({ "attachment":{
             "type":"template",
             "payload":{
@@ -34,9 +35,9 @@ class MessengerBotController < ActionController::Base
             }
          }
       })
+  end 
       
-      
-def postback(event, sender)
+  def postback(event, sender)
     payload = event["postback"]["payload"]
     case payload
     when "OVER"
@@ -44,10 +45,11 @@ def postback(event, sender)
     when "UNDER"
       sender.reply({ text: "下が押されたよ！" })
     end
-end
+  end
   
 
 
   def delivery(event, sender)
   end
+  
 end
