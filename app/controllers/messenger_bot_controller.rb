@@ -3,7 +3,7 @@ class MessengerBotController < ActionController::Base
     # profile = sender.get_profile(field) # default field [:locale, :timezone, :gender, :first_name, :last_name, :profile_pic]
      #sender.reply({ text: "#{event['message']['text']}" })
    
-    #text.sender = {text: "#{event['message']['text']}"}
+    text.sender = event['message']['text']
     
    if text.sender != null
     sender.reply({ text: "gameをしませんか？" })
