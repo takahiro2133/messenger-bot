@@ -10,11 +10,11 @@ class MessengerBotController < ActionController::Base
 
       
   #end
-sender.text = event['message']['text']
+sender.text = {"text": event['message']['text']}
 
   def message(event,sender)
     if sender.text = "こんにちわ"
-    　　sender.reply('helleo')
+    　　sender.reply('hello!!')
     end
   end
   
