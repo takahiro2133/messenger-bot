@@ -11,6 +11,7 @@ class MessengerBotController < ActionController::Base
       
   #end
 sender.text = event['message']['text']
+
   def message(event,sender)
     if sender.text = "こんにちわ"
     　　sender.reply('helleo')
@@ -42,7 +43,7 @@ sender.text = event['message']['text']
          }
       })
   end 
-end
+  
       
   def postback(event, sender)
     payload = event["postback"]["payload"]
@@ -58,4 +59,5 @@ end
 
   def delivery(event, sender)
   end
-  
+
+end 
