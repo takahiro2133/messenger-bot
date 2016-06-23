@@ -10,12 +10,17 @@ class MessengerBotController < ActionController::Base
 
       
   #end
-
+  def message(event,sender)
+    if event['message']['text'] = "こんにちわ"
+    　　sender.reply('helleo')
+    end
+  end
+  
   def message(event, sender)
     profile = sender.get_profile[:body]
     profile_last_name = profile['last_name']
     profile_first_name = profile['first_name']
-    sender.reply({ "attachment":{
+      sender.reply({ "attachment":{
             "type":"template",
             "payload":{
                 "template_type":"button",
@@ -36,6 +41,7 @@ class MessengerBotController < ActionController::Base
          }
       })
   end 
+end
       
   def postback(event, sender)
     payload = event["postback"]["payload"]
@@ -52,4 +58,3 @@ class MessengerBotController < ActionController::Base
   def delivery(event, sender)
   end
   
-end
