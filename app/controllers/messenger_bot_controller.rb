@@ -5,7 +5,11 @@ class MessengerBotController < ActionController::Base
     sender.reply('hey!!')
   end
   
-      
+ 
+  def delivery(event, sender)
+  end     
+  
+  
   def postback(event, sender)
     payload = event["postback"]["payload"]
     case payload
@@ -17,11 +21,4 @@ class MessengerBotController < ActionController::Base
       sender.reply({ text: "music"})
     end
   end
-  
-
-
-  def delivery(event, sender)
-  end
-
-
 end 
