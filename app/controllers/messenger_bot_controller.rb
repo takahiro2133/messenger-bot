@@ -11,7 +11,7 @@ class MessengerBotController < ActionController::Base
                              "template_type":"generic",
                              "elements":[
                                {  "title":"Cの押さえ方",
-                                  "image_url":"http://knatsubrand81.com/osaekata/chords-c-l.jpg",
+                                  "image_url":"http://mfc-music.com/wp-content/uploads/2015/03/C%E3%82%B3%E3%83%BC%E3%83%89.png",
                                   "buttons":[
                                        {
                                            "type":"postback",
