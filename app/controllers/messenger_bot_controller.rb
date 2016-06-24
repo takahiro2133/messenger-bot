@@ -2,6 +2,7 @@ class MessengerBotController < ActionController::Base
 
   def message(event,sender)
     text = event['message']['text']
+    sender.reply('hey!!')
         if text == "こんにちは"
         　　sender.reply('hello!!')
         elsif text == "cコード"
@@ -11,7 +12,7 @@ class MessengerBotController < ActionController::Base
                             "template_type":"generic",
                             "elements":[
                               {  "title":"Cの押さえ方",
-                                 "image":"chords-c-l.jpg",
+                                 "image":"http://knatsubrand81.com/osaekata/chords-c-l.jpg",
                                  "buttons":[
                                       {
                                           "type":"postback",
@@ -34,10 +35,7 @@ class MessengerBotController < ActionController::Base
                                   }
                                 }
                             })
-        else sender.reply('ちゃんとギター弾いているかい？')
-                              
-                                  
-                                    
+        else sender.reply('ロッキン！！')
         end
   end
   
