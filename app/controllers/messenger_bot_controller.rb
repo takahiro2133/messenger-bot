@@ -9,7 +9,7 @@ class MessengerBotController < ActionController::Base
                  "type":"template",
                          "payload":{
                              "template_type":"generic",
-                             "elements":
+                             "elements":[
                                {  "title":"Cの押さえ方",
                                   "image_url":"http://knatsubrand81.com/osaekata/chords-c-l.jpg",
                                   "buttons":[
@@ -30,7 +30,7 @@ class MessengerBotController < ActionController::Base
                                        }
                                             ]
                               }
-                                       
+                                ]       
                                    }
                                  }
                              })
