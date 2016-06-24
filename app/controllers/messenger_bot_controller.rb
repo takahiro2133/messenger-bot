@@ -48,11 +48,11 @@ class MessengerBotController < ActionController::Base
     payload = event["postback"]["payload"]
     case payload
     when "using_Ccord"
-      sender.reply({ text: "C！" })
+      sender.reply(text: "C！")
     when "other_c"
-      sender.reply({ text: "otherC！" })
+      sender.reply(text: "otherC")
     when "music_c"
-      sender.reply({ text: "music"})
+      sender.reply(text: "music")
     end
   end
 end 
