@@ -2,9 +2,7 @@ class MessengerBotController < ActionController::Base
 
   def message(event,sender)
     text = event['message']['text']
-    profile = sender.get_profile[:body]
-    sender_id = event['sender']['id']
-        if text == "こんにちわ"
+        if text == "こんにちは"
         　　sender.reply('hello!!')
         elsif text == "cコード"
                 sender.reply({ "attachment":{
