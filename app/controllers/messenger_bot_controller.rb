@@ -1,57 +1,57 @@
 class MessengerBotController < ActionController::Base
-  #def message(event, sender)
-    # profile = sender.get_profile(field) # default field [:locale, :timezone, :gender, :first_name, :last_name, :profile_pic]
-     #sender.reply({ text: "#{event['message']['text']}" })
-   
-    #text.sender = event['message']['text']
-    
-
-    #sender.reply({ text: "gameをしませんか？" })
-
-      
-  #end
-sender.text = {"text": event['message']['text']}
 
   def message(event,sender)
-    if sender.text = "こんにちわ"
-    　　sender.reply('hello!!')
-    end
-  end
-  
-  def message(event, sender)
+    text = event['message']['text']
     profile = sender.get_profile[:body]
-    profile_last_name = profile['last_name']
-    profile_first_name = profile['first_name']
-      sender.reply({ "attachment":{
-            "type":"template",
-            "payload":{
-                "template_type":"button",
-                "text":"#{profile_last_name} #{profile_first_name}さんこんにちは",
-                "buttons":[
-                    {
-                        "type":"postback",
-                        "title":"OVER",
-                        "payload":"OVER"
-                    },
-                    {
-                        "type":"postback",
-                        "title":"UNDER",
-                        "payload":"UNDER"
-                    }
-                ]
-            }
-         }
-      })
-  end 
+    sender_id = event['sender']['id']
+        if text == "こんにちわ"
+        　　sender.reply('hello!!')
+        elsif text == "cコード"
+                sender.reply({ "attachment":{
+                        "type":"template",
+                        "payload":{
+                            "template_type":"generic",
+                            "elements":[
+                              {  "title":"Cの押さえ方",
+                                 "image":"chords-c-l.jpg",
+                                 "buttons":[
+                                      {
+                                          "type":"postback",
+                                          "title":"Cコードを使ったコード進行",
+                                          "payload":"using_Ccord"
+                                      },
+                                      {
+                                          "type":"postback",
+                                          "title":"Cの関連コード",
+                                          "payload":"other_c"
+                                      },
+                                      {
+                                          "type":"postback",
+                                          "title":"Cを使った楽曲",
+                                          "payload":"music_c"
+                                      }
+                              ]
+                              }
+                                       ]
+                                  }
+                                }
+                            })
+                              
+                                  
+                                    
+        end
+  end
   
       
   def postback(event, sender)
     payload = event["postback"]["payload"]
     case payload
-    when "OVER"
-      sender.reply({ text: "上が押されたよ！" })
-    when "UNDER"
-      sender.reply({ text: "下が押されたよ！" })
+    when "using_Ccord"
+      sender.reply({ text: "C！" })
+    when "other_c"
+      sender.reply({ text: "otherC！" })
+    when "music_c"
+      sender.reply({ text: "yes"})
     end
   end
   
