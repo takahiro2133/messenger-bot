@@ -4,7 +4,7 @@ class MessengerBotController < ActionController::Base
     text = event['message']['text']
              if text == "こんにちは"
                sender.reply(text: "hello")
-             elsif text.include?("アルペジオ") && text.end_with?("？")
+             elsif text.include?("アルペジオ") && text.end_with?("？") or text == ("アルペジオ")
                sender.reply(text: "アルペジオっつーのは、1本1本の弦をバラバラに弾く奏法のことだな！")
                sender.reply({ "attachment": {
                 "type": "image",
@@ -19,7 +19,7 @@ class MessengerBotController < ActionController::Base
                          "payload":{
                              "template_type":"generic",
                              "elements":[
-                               {  "title":"Cの押さえ方",
+                               {  "title":"Cコードの押さえ方",
                                   "image_url":"http://mfc-music.com/wp-content/uploads/2015/03/C%E3%82%B3%E3%83%BC%E3%83%89.png",
                                   "buttons":[
                                        {
