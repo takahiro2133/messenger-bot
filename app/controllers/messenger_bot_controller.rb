@@ -9,14 +9,14 @@ class MessengerBotController < ActionController::Base
                  "type":"template",
                          "payload":{
                              "template_type":"generic",
-                             "elements":[
+                             "elements":
                                {  "title":"Cの押さえ方",
-                                 "image":"http://knatsubrand81.com/osaekata/chords-c-l.jpg",
-                                 "buttons":[
+                                  "image_url":"http://knatsubrand81.com/osaekata/chords-c-l.jpg",
+                                  "buttons":[
                                        {
                                            "type":"postback",
                                            "title":"Cコードを使ったコード進行",
-                                           "payload":"using_Ccord"
+                                           "payload":"using_c"
                                        },
                                        {
                                            "type":"postback",
@@ -28,9 +28,9 @@ class MessengerBotController < ActionController::Base
                                            "title":"Cを使った楽曲",
                                            "payload":"music_c"
                                        }
-                               ]
+                                            ]
                               }
-                                       ]
+                                       
                                    }
                                  }
                              })
@@ -48,7 +48,7 @@ class MessengerBotController < ActionController::Base
   def postback(event, sender)
     payload = event["postback"]["payload"]
     case payload
-    when "using_Ccord"
+    when "using_c"
       sender.reply(text: "C！")
     when "other_c"
       sender.reply(text: "otherC")
