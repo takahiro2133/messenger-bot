@@ -5,9 +5,37 @@ class MessengerBotController < ActionController::Base
              if text == "こんにちは"
                sender.reply(text: "hello")
              elsif text == "cコード"
-               sender.reply(text: "ド")
-             else 
-               sender.reply(text: "#{text}")
+               sender.reply({ "attachment":{
+                 "type":"template",
+                         "payload":{
+                             "template_type":"generic",
+                             "elements":[
+                               {  "title":"Cの押さえ方",
+                                 "image":"http://knatsubrand81.com/osaekata/chords-c-l.jpg",
+                                 "buttons":[
+                                       {
+                                           "type":"postback",
+                                           "title":"Cコードを使ったコード進行",
+                                           "payload":"using_Ccord"
+                                       },
+                                       {
+                                           "type":"postback",
+                                           "title":"Cの関連コード",
+                                           "payload":"other_c"
+                                       },
+                                       {
+                                           "type":"postback",
+                                           "title":"Cを使った楽曲",
+                                           "payload":"music_c"
+                                       }
+                               ]
+                              }
+                                       ]
+                                   }
+                                 }
+                             })
+             else sender.reply(text: "#{text}")
+             
              end
 
   end
