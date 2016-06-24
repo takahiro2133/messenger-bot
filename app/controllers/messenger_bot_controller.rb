@@ -13,7 +13,7 @@ class MessengerBotController < ActionController::Base
                           }
                                               }
                             })
-             elsif text == "ｃコード" && text == "Cコード"
+             elsif text == "Cコード" or text == "cコード"
                sender.reply({ "attachment":{
                  "type":"template",
                          "payload":{
