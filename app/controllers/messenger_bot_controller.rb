@@ -3,40 +3,6 @@ class MessengerBotController < ActionController::Base
   def message(event,sender)
     text = event['message']['text']
     sender.reply('hey!!')
-        # if text == "こんにちは"
-        # 　　sender.reply('hello!!')
-        # elsif text == "cコード"
-        #         sender.reply({ "attachment":{
-        #                 "type":"template",
-        #                 "payload":{
-        #                     "template_type":"generic",
-        #                     "elements":[
-        #                       {  "title":"Cの押さえ方",
-        #                         "image":"http://knatsubrand81.com/osaekata/chords-c-l.jpg",
-        #                         "buttons":[
-        #                               {
-        #                                   "type":"postback",
-        #                                   "title":"Cコードを使ったコード進行",
-        #                                   "payload":"using_Ccord"
-        #                               },
-        #                               {
-        #                                   "type":"postback",
-        #                                   "title":"Cの関連コード",
-        #                                   "payload":"other_c"
-        #                               },
-        #                               {
-        #                                   "type":"postback",
-        #                                   "title":"Cを使った楽曲",
-        #                                   "payload":"music_c"
-        #                               }
-        #                       ]
-        #                       }
-        #                               ]
-        #                           }
-        #                         }
-        #                     })
-        # else sender.reply('ロッキン！！')
-        # end
   end
   
       
@@ -56,5 +22,6 @@ class MessengerBotController < ActionController::Base
 
   def delivery(event, sender)
   end
+
 
 end 
