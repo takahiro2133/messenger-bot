@@ -3,9 +3,11 @@ class MessengerBotController < ActionController::Base
   def message(event,sender)
     text = event['message']['text']
              if text == "こんにちは"
-         　      　sender.reply(text: "hello!")
+               sender.reply(text: "hello")
              elsif text == "cコード"
-                 sender.reply(text: "ド")
+               sender.reply(text: "ド")
+             else 
+               sender.reply(text: "#{text}")
              end
 
   end
