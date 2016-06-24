@@ -4,7 +4,7 @@ class MessengerBotController < ActionController::Base
     text = event['message']['text']
              if text == "こんにちは"
                sender.reply(text: "hello")
-             elsif text.include == "アルペジオ" && "?"
+             elsif text == "アルペジオ"
                sender.reply(text: "アルペジオっつーのは、1本1本の弦をバラバラに弾く奏法のことだな！")
                sender.reply("http://mfc-music.com/wp-content/uploads/2015/03/C%E3%82%B3%E3%83%BC%E3%83%89.png")
              elsif text == "cコード"
