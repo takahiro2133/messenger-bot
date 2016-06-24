@@ -23,7 +23,7 @@ class MessengerBotController < ActionController::Base
                                               }
                             })
                             
-             elsif text.include?("疲れた","しんどい","だるい")
+             elsif text.include?("疲れた") or text.include?("しんどい")
                sender.reply(text: "今の君はDmだな！そんな君に合うフレーズを伝授しよう！！")
                sender.reply({ "attachment": {
                 "type": "image",
