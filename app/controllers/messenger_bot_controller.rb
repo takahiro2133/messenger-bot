@@ -34,6 +34,7 @@ class MessengerBotController < ActionController::Base
                                   }
                                 }
                             })
+        else sender.reply('ちゃんとギター弾いているかい？')
                               
                                   
                                     
@@ -49,7 +50,7 @@ class MessengerBotController < ActionController::Base
     when "other_c"
       sender.reply({ text: "otherC！" })
     when "music_c"
-      sender.reply({ text: "yes"})
+      sender.reply({ text: "music"})
     end
   end
   
