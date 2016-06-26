@@ -1,5 +1,8 @@
 class MessengerBotController < ActionController::Base
-
+  
+  
+  BingAPIKEY = 'RWVDsTmHZY47DRyQQq4iJmvb6Ut1ENBPeRk+OdfFthY'
+  
   def message(event,sender)
     text = event['message']['text']
              if text == "こんにちは"
@@ -24,11 +27,11 @@ class MessengerBotController < ActionController::Base
                             })
                             
              elsif text.include?("疲れた") or text.include?("しんどい")
-               sender.reply(text: "今の君はDmだな！そんな君に合うフレーズを伝授しよう！！")
+               sender.reply(text: "今の君はCな気分なんだな！！")
                sender.reply({ "attachment": {
                 "type": "image",
                 "payload": {
-                  "url": "http://mfc-music.com/wp-content/uploads/2015/03/C%E3%82%B3%E3%83%BC%E3%83%89.png"
+                  "url": "https://www.dropbox.com/home?preview=C%E3%82%B3%E3%83%BC%E3%83%89.mp3"
                           }
                                               }
                             })
@@ -54,7 +57,7 @@ class MessengerBotController < ActionController::Base
                                        },
                                        {
                                            "type":"postback",
-                                           "title":"Cを使った楽曲",
+                                           "title":"Cコードのサンプル音",
                                            "payload":"music_c"
                                        }
                                             ]
