@@ -18,13 +18,13 @@ class MessengerBotController < ActionController::Base
                             })
              elsif text.include?("チョーキング") && text.end_with?("？") or text == ("チョーキング")
                sender.reply(text: "チョーキングは、弦を弾いた後、押し弦を動かして音の高さを変える奏法のことだな！")
-               sender.reply({ "attachment": {
-                "type": "image",
-                "payload": {
-                  "url": "http://mfc-music.com/wp-content/uploads/2015/03/C%E3%82%B3%E3%83%BC%E3%83%89.png"
-                          }
-                                              }
-                            })
+              # sender.reply({ "attachment": {
+              #  "type": "image",
+              #  "payload": {
+              #    "url": "http://mfc-music.com/wp-content/uploads/2015/03/C%E3%82%B3%E3%83%BC%E3%83%89.png"
+              #            }
+              #                                }
+              #              })
                             
              elsif text.include?("疲れた") or text.include?("しんどい")
                sender.reply(text: "今の君はCな気分なんだな！！")
