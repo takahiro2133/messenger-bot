@@ -7,15 +7,17 @@ class MessengerBotController < ActionController::Base
     text = event['message']['text']
              if text == "こんにちは"
                sender.reply(text: "hello")
+               
+            #奏法などに対する応答
              elsif text.include?("アルペジオ") && text.end_with?("？") or text == ("アルペジオ")
-               sender.reply(text: "アルペジオは、1本1本の弦をバラバラに弾く奏法のことだな！")
-              # sender.reply({ "attachment": {
-              #  "type": "image",
-              #  "payload": {
-              #    "url": "http://mfc-music.com/wp-content/uploads/2015/03/C%E3%82%B3%E3%83%BC%E3%83%89.png"
-              #            }
-              #                                }
-              #              })
+              sender.reply(text: "アルペジオは、1本1本の弦をバラバラに弾く奏法のことだな！")
+              sender.reply({ "attachment": {
+              "type": "url",
+              "payload": {
+                 "url": "https://www.dropbox.com/home?preview=C%E3%82%B3%E3%83%BC%E3%83%89.mp3"
+                          }
+                                              }
+                           })
              elsif text.include?("チョーキング") && text.end_with?("？") or text == ("チョーキング")
                sender.reply(text: "チョーキングは、弦を弾いた後、押し弦を動かして音の高さを変える奏法のことだな！")
               # sender.reply({ "attachment": {
@@ -25,7 +27,9 @@ class MessengerBotController < ActionController::Base
               #            }
               #                                }
               #              })
-                            
+            
+            
+            #気分などに対する応答                
              elsif text.include?("疲れた") or text.include?("しんどい")
                sender.reply(text: "今の君はDmな気分なんだな！！")
                sender.reply({ "attachment": {
@@ -35,7 +39,7 @@ class MessengerBotController < ActionController::Base
                           }
                                               }
                             })
-                            
+            #コードに対する応答               
              elsif text == "Cコード" or text == "cコード"
                sender.reply({ "attachment":{
                  "type":"template",
