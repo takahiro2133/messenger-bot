@@ -66,6 +66,37 @@ class MessengerBotController < ActionController::Base
                                    }
                                  }
                              })
+                             
+               elsif text == "Gコード" or text == "gコード"
+               sender.reply({ "attachment":{
+                 "type":"template",
+                         "payload":{
+                             "template_type":"generic",
+                             "elements":[
+                               {  "title":"Gコードの押さえ方",
+                                  "image_url":"http://mfc-music.com/wp-content/uploads/2015/03/G%E3%82%B3%E3%83%BC%E3%83%89.png",
+                                  "buttons":[
+                                       {
+                                           "type":"postback",
+                                           "title":"Gコードを使ったコード進行",
+                                           "payload":"using_g"
+                                       },
+                                       {
+                                           "type":"postback",
+                                           "title":"Gの関連コード",
+                                           "payload":"other_g"
+                                       },
+                                       {
+                                           "type":"postback",
+                                           "title":"Gコードのサンプル音",
+                                           "payload":"music_g"
+                                       }
+                                            ]
+                              }
+                                ]       
+                                   }
+                                 }
+                             })
              else sender.reply(text: "#{text}")
              
              end
@@ -86,6 +117,13 @@ class MessengerBotController < ActionController::Base
       sender.reply(text: "otherC")
     when "music_c"
       sender.reply(text: "music")
+      
+    when "using_g"
+      sender.reply(text: "G！")
+    when "other_g"
+      sender.reply(text: "otherG")
+    when "music_g"
+      sender.reply(text: "musig")
     end
   end
 end 
