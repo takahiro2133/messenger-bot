@@ -4,6 +4,9 @@ class MessengerBotController < ActionController::Base
   BingAPIKEY = 'RWVDsTmHZY47DRyQQq4iJmvb6Ut1ENBPeRk+OdfFthY'
   
   def message(event,sender)
+    text_C  = 'http://mfc-music.com/wp-content/uploads/2015/03/C%E3%82%B3%E3%83%BC%E3%83%89.png'
+    text_G  = 'http://mfc-music.com/wp-content/uploads/2015/03/G%E3%82%B3%E3%83%BC%E3%83%89.png'
+    text_Am = 'http://mfc-music.com/wp-content/uploads/2015/03/Am%E3%82%B3%E3%83%BC%E3%83%89.png'
     text = event['message']['text']
              if text == "こんにちは"
                sender.reply(text: "hello")
@@ -43,7 +46,7 @@ class MessengerBotController < ActionController::Base
                              "template_type":"generic",
                              "elements":[
                                {  "title":"Cコードの押さえ方",
-                                  "image_url":"http://mfc-music.com/wp-content/uploads/2015/03/C%E3%82%B3%E3%83%BC%E3%83%89.png",
+                                  "image_url":text_C,
                                   "buttons":[
                                        {
                                            "type":"postback",
@@ -74,7 +77,7 @@ class MessengerBotController < ActionController::Base
                              "template_type":"generic",
                              "elements":[
                                {  "title":"Gコードの押さえ方",
-                                  "image_url":"http://mfc-music.com/wp-content/uploads/2015/03/G%E3%82%B3%E3%83%BC%E3%83%89.png",
+                                  "image_url":text_G,
                                   "buttons":[
                                        {
                                            "type":"postback",
