@@ -129,7 +129,7 @@ class MessengerBotController < ActionController::Base
     when "other_g"
       sender.reply(text: "otherG")
     when "music_g"
-      sender.reply(text: "")
+      sender.reply(text: "はは")
     end
   end
 end 
