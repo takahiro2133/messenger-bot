@@ -7,6 +7,9 @@ class MessengerBotController < ActionController::Base
     text_C  = 'http://mfc-music.com/wp-content/uploads/2015/03/C%E3%82%B3%E3%83%BC%E3%83%89.png'
     text_G  = 'http://mfc-music.com/wp-content/uploads/2015/03/G%E3%82%B3%E3%83%BC%E3%83%89.png'
     text_Am = 'http://mfc-music.com/wp-content/uploads/2015/03/Am%E3%82%B3%E3%83%BC%E3%83%89.png'
+    
+    
+    text_C_music = 'https://www.dropbox.com/home?preview=C%E3%82%B3%E3%83%BC%E3%83%89.mp3'
     text = event['message']['text']
              if text == "こんにちは"
                sender.reply(text: "hello")
@@ -35,7 +38,7 @@ class MessengerBotController < ActionController::Base
             #気分などに対する応答                
              elsif text.include?("疲れた") or text.include?("しんどい")
                sender.reply(text: "今の君はDmな気分なんだな！！")
-               sender.reply(text: "https://www.dropbox.com/s/xijhmun62xnb4o8/C%E3%82%B3%E3%83%BC%E3%83%89.mp3?dl=0")
+               sender.reply(text:text_C_music)
                
                
             #コードに対する応答               
@@ -126,7 +129,7 @@ class MessengerBotController < ActionController::Base
     when "other_g"
       sender.reply(text: "otherG")
     when "music_g"
-      sender.reply(text: "music")
+      sender.reply(text: "")
     end
   end
 end 
