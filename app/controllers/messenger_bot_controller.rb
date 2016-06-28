@@ -32,13 +32,9 @@ class MessengerBotController < ActionController::Base
             #気分などに対する応答                
              elsif text.include?("疲れた") or text.include?("しんどい")
                sender.reply(text: "今の君はDmな気分なんだな！！")
-               sender.reply({ "attachment": {
-                "type": "image",
-                "payload": {
-                  "url": "https://www.dropbox.com/s/xijhmun62xnb4o8/C%E3%82%B3%E3%83%BC%E3%83%89.mp3?dl=0"
-                          }
-                                              }
-                            })
+               sender.reply("url": "https://www.dropbox.com/s/xijhmun62xnb4o8/C%E3%82%B3%E3%83%BC%E3%83%89.mp3?dl=0")
+               
+               
             #コードに対する応答               
              elsif text == "Cコード" or text == "cコード"
                sender.reply({ "attachment":{
