@@ -12,6 +12,12 @@ class MessengerBotController < ActionController::Base
     text_C_music = 'https://www.dropbox.com/home?preview=C%E3%82%B3%E3%83%BC%E3%83%89.mp3'
     text = event['message']['text']
     
+    code = Array.new
+    
+    0.upto(6){|t|
+      code[t] = [code_major[t],code_minor[t]]
+    }
+    
     text_random = Array["ギターって...いいよな", "ギター練習したのか？"]
     music_recommend = Array["Layla(Eric Clapton)", "Let it Be(Beatles)", "Walk This Way（Aerosmith)"]
     code_minor = Array["Am", "Bm", "Cm", "Dm", "Em", "Fm", "Gm"]
@@ -49,7 +55,8 @@ class MessengerBotController < ActionController::Base
                sender.reply(text: "#{text_random.sample}")
             
             elsif text.include?("コード進行")
-                sender.reply(text: "#{code_shinkou.sample}")
+                code_sample = code.sample
+                sender.reply(text: "#{code_sample[0]},#{code_sample[1]}")
                 
             elsif text.include?("曲") & text.include?("おすすめ")
                 sender.reply(text: "#{music_recommend.sample}")
