@@ -39,7 +39,7 @@ class MessengerBotController < ActionController::Base
             
                     sender.reply({ text: "#{city}の天気はこんな感じです。" })
                     
-            if text == "こんにちは"
+            elsif text == "こんにちは"
                sender.reply(text: "hello")
                
             #奏法などに対する応答
@@ -169,4 +169,4 @@ class MessengerBotController < ActionController::Base
   end
   
 end 
-end
+
