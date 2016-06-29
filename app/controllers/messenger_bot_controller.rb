@@ -13,10 +13,10 @@ class MessengerBotController < ActionController::Base
     text = event['message']['text']
     
     text_random = Array["ギターって...いいよな", "ギター練習したのか？"]
-    music_recommend = Array["Layla(Eric Clapton)", "Let it Be(Beatles)", "Walk This Way（Aerosmith"]
+    music_recommend = Array["Layla(Eric Clapton)", "Let it Be(Beatles)", "Walk This Way（Aerosmith)"]
     code_minor = Array["Am", "Bm", "Cm", "Dm", "Em", "Fm", "Gm"]
     code_major = Array["A", "B", "C", "D", "E", "F", "G"]
-    code_shinkou = Array["D - A - Bm - F#m - G - D - G - A", "F - G - Em - Am"]
+    code_shinkou = Array["D - A - Bm - F#m - G - D - G - A", "F - G - Em - Am", "Am - F - G - C"]
     flase_recommend = Array[]
     
             if text.end_with?("天気")
@@ -77,8 +77,8 @@ class MessengerBotController < ActionController::Base
             
             #気分などに対する応答                
             elsif text.include?("疲れた") or text.include?("しんどい")
-               sender.reply(text: "今の君は#{code_minor}な気分なんだな！！そんな君にはこのフレーズを伝授しよう")
-               sender.reply(text: "#{code_shinkou}")
+               sender.reply(text: "今の君は#{code_minor.sample}な気分なんだな！！そんな君にはこのフレーズを伝授しよう")
+               sender.reply(text: "#{code_shinkou.sample}")
                
                
             #コードに対する応答               
