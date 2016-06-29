@@ -20,6 +20,7 @@ class MessengerBotController < ActionController::Base
                     weather_tomorrow = res['forecasts'][1]
                     link = res['link']
                     city = res['location']['city']
+                    weather = weather_today['telop']
             
                     if weather_today['temperature']['max'] != nil
                         max = "最高気温：#{weather_today['temperature']['max']['celsius']}℃"
@@ -30,7 +31,7 @@ class MessengerBotController < ActionController::Base
                     
                     today = "#{weather_today['dateLabel']}の#{city}の天気は「#{weather_today['telop']}」だな。"
                     
-                    if weather_today['telop'] == '晴れ'
+                    if weather == '晴れ'
                           sender.reply({ text: "#{today}今日におすすめの曲はこれだ！！" })
                     
                     else
