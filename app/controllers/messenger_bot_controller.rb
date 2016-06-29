@@ -34,10 +34,10 @@ class MessengerBotController < ActionController::Base
                         min_t = "最低気温：#{weather_tomorrow['temperature']['min']['celsius']}℃"
                     end
                     
-                    today = "#{weather_today['dateLabel']}の#{city}の天気は「#{weather_today['telop']}」です。"
+                    today = "#{weather_today['dateLabel']}の#{city}の天気は「#{weather_today['telop']}」だな。"
                     tomorrow = "#{weather_tomorrow['dateLabel']}の#{city}の天気は「#{weather_tomorrow['telop']}」です。"
             
-                    sender.reply({ text: "#{city}の天気はこんな感じです。" })
+                    sender.reply({ text: "#{today}" })
                     
                     sender.reply({ "attachment": {
                                     "type":"template",
