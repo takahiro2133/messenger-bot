@@ -57,7 +57,7 @@ class MessengerBotController < ActionController::Base
             
             elsif text.include?("コード進行")
                 code_sample = code.sample
-                sender.reply(text: "#{code_sample[0]}\n,#{code_sample[1]}")
+                sender.reply(text: "#{code_sample[0]}\nサンプル音\n#{code_sample[1]}")
                 
             elsif text.include?("曲") & text.include?("おすすめ")
                 sender.reply(text: "#{music_recommend.sample}")
