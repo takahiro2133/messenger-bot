@@ -12,7 +12,11 @@ class MessengerBotController < ActionController::Base
     text_C_music = 'https://www.dropbox.com/home?preview=C%E3%82%B3%E3%83%BC%E3%83%89.mp3'
     text = event['message']['text']
     
+    text_random = Array["ギターって...いいよな", "ギター練習したのか？"]
     music_recomend = Array["music1", "music2", "music3"]
+    code_minor = Array["Am", "Bm", "Cm", "Dm", "Em", "Fm", "Gm"]
+    code_major = Array["A", "B", "C", "D", "E", "F", "G"]
+    code_shinkou = Array["D - A - Bm - F#m - G - D - G - A", "F - G - Em - Am"]
     
             if text.end_with?("天気")
                     uri = 'http://weather.livedoor.com/forecast/webservice/json/v1?city=130010'
@@ -41,7 +45,10 @@ class MessengerBotController < ActionController::Base
                     end
                     
             elsif text == "こんにちは"
-               sender.reply(text: "#{music_recomend.sample}")
+               sender.reply(text: "#{text_random.sample}")
+            
+            elsif text.include?("コード進行")
+                sender.reply(text: "#{code_shinkou.sample}")
                
             #奏法などに対する応答
             elsif text.include?("アルペジオ") && text.end_with?("？") or text == ("アルペジオ")
@@ -71,7 +78,7 @@ class MessengerBotController < ActionController::Base
                
                
             #コードに対する応答               
-            elsif text == "Cコード" or text == "cコード"
+            elsif text == "Cコード" or text == "cコード" or text == "C" or text == "c"
                sender.reply({ "attachment":{
                  "type":"template",
                          "payload":{
