@@ -13,10 +13,11 @@ class MessengerBotController < ActionController::Base
     text = event['message']['text']
     
     text_random = Array["ギターって...いいよな", "ギター練習したのか？"]
-    music_recomend = Array["music1", "music2", "music3"]
+    music_recommend = Array["Layla(Eric Clapton)", "Let it Be(Beatles)", "Walk This Way（Aerosmith"]
     code_minor = Array["Am", "Bm", "Cm", "Dm", "Em", "Fm", "Gm"]
     code_major = Array["A", "B", "C", "D", "E", "F", "G"]
     code_shinkou = Array["D - A - Bm - F#m - G - D - G - A", "F - G - Em - Am"]
+    flase_recommend = Array[]
     
             if text.end_with?("天気")
                     uri = 'http://weather.livedoor.com/forecast/webservice/json/v1?city=130010'
@@ -39,7 +40,7 @@ class MessengerBotController < ActionController::Base
                     if weather == '晴れ'
                           sender.reply({ text: "#{today}今日におすすめの曲はこれだ！！" })
                     elsif weather == '曇のち雨'
-                          sender.reply({ text: "#{today}こんなしれった日はこの曲でも聞いてロックしろ！！" })
+                          sender.reply({ text: "#{today}こんなしみったれた日はこの曲でも聞いてロックしろ！！" })
                           
                     else  sender.reply( text: "天気なんか知るか" )
                     end
@@ -49,6 +50,9 @@ class MessengerBotController < ActionController::Base
             
             elsif text.include?("コード進行")
                 sender.reply(text: "#{code_shinkou.sample}")
+                
+            elsif text.include?("曲") & text.include?("おすすめ")
+                sender.reply(text: "#{music_recommend.sample}")
                
             #奏法などに対する応答
             elsif text.include?("アルペジオ") && text.end_with?("？") or text == ("アルペジオ")
