@@ -15,6 +15,8 @@ class MessengerBotController < ActionController::Base
     
     text_random = Array["ギターって...いいよな", "ギター練習したのか？"]
     music_recommend = Array["Layla(Eric Clapton)", "Let it Be(Beatles)", "Walk This Way（Aerosmith)"]
+    music_recommend_tab = Array["aaa", "bbb", "ccc"]
+    music_recommend_oto = Array["A","B","C"]
     code_minor = Array["Am", "Bm", "Cm", "Dm", "Em", "Fm", "Gm"]
     code_major = Array["A", "B", "C", "D", "E", "F", "G"]
     code_shinkou = Array["D - A - Bm - F#m - G - D - G - A", "F - G - Em - Am", "Am - F - G - C"]
@@ -24,6 +26,11 @@ class MessengerBotController < ActionController::Base
     code = Array.new
     0.upto(6){|t|
       code[t] = [code_shinkou[t],code_shinkou_music[t]]
+    }
+    
+    recommend =Array.new
+      0.upto(2){|t|
+      code[t] = [music_recommend[t],music_recommend_tab[t],music_recommend_oto[t]]
     }
     
           
@@ -57,6 +64,8 @@ class MessengerBotController < ActionController::Base
                sender.reply(text: "#{text_random.sample}")
                
             elsif text.include?("フレーズ") & text.include?("おすすめ")
+                recommend_sample = recommend.sample
+                sender.reply(text: "#{recommend_sample[0]}\n[TAB譜]\n#{recommend_sample[1]}\n#{recommend_sample[2]}")
             
             elsif text.include?("コード進行")
                 code_sample = code.sample
