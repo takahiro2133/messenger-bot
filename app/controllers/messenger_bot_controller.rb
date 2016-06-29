@@ -39,6 +39,40 @@ class MessengerBotController < ActionController::Base
             
                     sender.reply({ text: "#{city}の天気はこんな感じです。" })
                     
+                    sender.reply({ "attachment": {
+                                    "type":"template",
+                                    "payload":{
+                                        "template_type":"generic",
+                                        "elements":[
+                                            {
+                                                "title":"#{today}",
+                                                "image_url":"#{weather_today['image']['url']}",
+                                                "subtitle":"#{max}\n#{min}",
+                                                "buttons":[
+                                                    {
+                                                        "type":"web_url",
+                                                        "url":"#{link}",
+                                                        "title":"詳細を見る"
+                                                    }
+                                                          ]
+                                            },{
+                                                "title":"#{tomorrow}",
+                                                "image_url":"#{weather_tomorrow['image']['url']}",
+                                                "subtitle":"#{max_t}\n#{min_t}",
+                                                "buttons":[
+                                                    {
+                                                        "type":"web_url",
+                                                        "url":"#{link}",
+                                                        "title":"詳細を見る"
+                                                    }
+                                                          ]
+                                            }
+                                                    ]
+                                      
+                                              }
+                                                            }
+                                             })
+                    
             elsif text == "こんにちは"
                sender.reply(text: "hello")
                
