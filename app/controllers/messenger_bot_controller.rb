@@ -18,12 +18,12 @@ class MessengerBotController < ActionController::Base
     code_minor = Array["Am", "Bm", "Cm", "Dm", "Em", "Fm", "Gm"]
     code_major = Array["A", "B", "C", "D", "E", "F", "G"]
     code_shinkou = Array["D - A - Bm - F#m - G - D - G - A", "F - G - Em - Am", "Am - F - G - C"]
-    code_shinkou_music = Array[]
+    code_shinkou_music = Array["aaa","bbb","ccc"]
     flase_recommend = Array[]
     
     code = Array.new
     0.upto(6){|t|
-      code[t] = [code_shinkou[t],music_shinkou_music[t]]
+      code[t] = [code_shinkou[t],code_shinkou_music[t]]
     }
     
             if text.end_with?("天気")
