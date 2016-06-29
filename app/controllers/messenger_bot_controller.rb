@@ -11,12 +11,7 @@ class MessengerBotController < ActionController::Base
     text_Am = 'http://mfc-music.com/wp-content/uploads/2015/03/Am%E3%82%B3%E3%83%BC%E3%83%89.png'
     text_C_music = 'https://www.dropbox.com/home?preview=C%E3%82%B3%E3%83%BC%E3%83%89.mp3'
     text = event['message']['text']
-    
-    code = Array.new
-    
-    0.upto(6){|t|
-      code[t] = [code_major[t],code_minor[t]]
-    }
+
     
     text_random = Array["ギターって...いいよな", "ギター練習したのか？"]
     music_recommend = Array["Layla(Eric Clapton)", "Let it Be(Beatles)", "Walk This Way（Aerosmith)"]
@@ -24,6 +19,10 @@ class MessengerBotController < ActionController::Base
     code_major = Array["A", "B", "C", "D", "E", "F", "G"]
     code_shinkou = Array["D - A - Bm - F#m - G - D - G - A", "F - G - Em - Am", "Am - F - G - C"]
     flase_recommend = Array[]
+    code = Array.new
+    0.upto(6){|t|
+      code[t] = [code_major[t],code_minor[t]]
+    }
     
             if text.end_with?("天気")
                     uri = 'http://weather.livedoor.com/forecast/webservice/json/v1?city=130010'
