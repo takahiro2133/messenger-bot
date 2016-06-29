@@ -9,10 +9,11 @@ class MessengerBotController < ActionController::Base
     text_C  = 'http://mfc-music.com/wp-content/uploads/2015/03/C%E3%82%B3%E3%83%BC%E3%83%89.png'
     text_G  = 'http://mfc-music.com/wp-content/uploads/2015/03/G%E3%82%B3%E3%83%BC%E3%83%89.png'
     text_Am = 'http://mfc-music.com/wp-content/uploads/2015/03/Am%E3%82%B3%E3%83%BC%E3%83%89.png'
-    
-    
     text_C_music = 'https://www.dropbox.com/home?preview=C%E3%82%B3%E3%83%BC%E3%83%89.mp3'
     text = event['message']['text']
+    
+    music_recomend = Array["music1", "music2", "music3"]
+    
             if text.end_with?("天気")
                     uri = 'http://weather.livedoor.com/forecast/webservice/json/v1?city=130010'
                     res = JSON.load(open(uri).read)
@@ -40,7 +41,7 @@ class MessengerBotController < ActionController::Base
                     end
                     
             elsif text == "こんにちは"
-               sender.reply(text: "hello")
+               sender.reply(text: "#{music_recomend[1]}")
                
             #奏法などに対する応答
             elsif text.include?("アルペジオ") && text.end_with?("？") or text == ("アルペジオ")
