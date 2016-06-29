@@ -41,7 +41,7 @@ class MessengerBotController < ActionController::Base
                     end
                     
             elsif text == "こんにちは"
-               sender.reply(text: "#{music_recomend[1]}")
+               sender.reply(text: "#{music_recomend.sample}")
                
             #奏法などに対する応答
             elsif text.include?("アルペジオ") && text.end_with?("？") or text == ("アルペジオ")
