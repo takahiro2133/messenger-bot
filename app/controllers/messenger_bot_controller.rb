@@ -23,7 +23,7 @@ class MessengerBotController < ActionController::Base
     
     code = Array.new
     0.upto(6){|t|
-      code[t] = [code_major[t],code_minor[t]]
+      code[t] = [code_shinkou[t],music_shinkou_music[t]]
     }
     
             if text.end_with?("天気")
@@ -57,7 +57,7 @@ class MessengerBotController < ActionController::Base
             
             elsif text.include?("コード進行")
                 code_sample = code.sample
-                sender.reply(text: "#{code_sample[0]}\nサンプル音\n#{code_sample[1]}")
+                sender.reply(text: "#{code_sample[0]}\n[サンプル音]\n#{code_sample[1]}")
                 
             elsif text.include?("曲") & text.include?("おすすめ")
                 sender.reply(text: "#{music_recommend.sample}")
