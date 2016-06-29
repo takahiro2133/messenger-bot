@@ -77,8 +77,8 @@ class MessengerBotController < ActionController::Base
             
             #気分などに対する応答                
             elsif text.include?("疲れた") or text.include?("しんどい")
-               sender.reply(text: "今の君はDmな気分なんだな！！")
-               sender.reply(text:text_C_music)
+               sender.reply(text: "今の君は#{code_minor}な気分なんだな！！そんな君にはこのフレーズを伝授しよう")
+               sender.reply(text: "#{code_shinkou}")
                
                
             #コードに対する応答               
