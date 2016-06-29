@@ -26,6 +26,7 @@ class MessengerBotController < ActionController::Base
       code[t] = [code_shinkou[t],code_shinkou_music[t]]
     }
     
+          
             if text.end_with?("天気")
                     uri = 'http://weather.livedoor.com/forecast/webservice/json/v1?city=130010'
                     res = JSON.load(open(uri).read)
@@ -54,6 +55,8 @@ class MessengerBotController < ActionController::Base
                     
             elsif text == "こんにちは"
                sender.reply(text: "#{text_random.sample}")
+               
+            elsif text.include?("フレーズ") & (text.include?("おすすめ") or text.include("かっこいい"))
             
             elsif text.include?("コード進行")
                 code_sample = code.sample
