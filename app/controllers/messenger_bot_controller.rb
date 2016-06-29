@@ -27,18 +27,12 @@ class MessengerBotController < ActionController::Base
                     if weather_today['temperature']['min'] != nil
                         min = "最低気温：#{weather_today['temperature']['min']['celsius']}℃"
                     end
-                    if weather_tomorrow['temperature']['max'] != nil
-                        max_t = "最高気温：#{weather_tomorrow['temperature']['max']['celsius']}℃"
-                    end
-                    if weather_tomorrow['temperature']['min'] != nil
-                        min_t = "最低気温：#{weather_tomorrow['temperature']['min']['celsius']}℃"
-                    end
                     
                     today = "#{weather_today['dateLabel']}の#{city}の天気は「#{weather_today['telop']}」だな。"
-                    tomorrow = "#{weather_tomorrow['dateLabel']}の#{city}の天気は「#{weather_tomorrow['telop']}」です。"
-            
-                    sender.reply({ text: "#{today}" })
+                    if weather_today['telop'] = '晴れ'
+                    sender.reply({ text: "#{today}今日におすすめの曲はこれだ！！" })
                     
+                    else
                     sender.reply({ "attachment": {
                                     "type":"template",
                                     "payload":{
@@ -72,6 +66,7 @@ class MessengerBotController < ActionController::Base
                                               }
                                                             }
                                              })
+                    end
                     
             elsif text == "こんにちは"
                sender.reply(text: "hello")
