@@ -18,7 +18,9 @@ class MessengerBotController < ActionController::Base
     code_minor = Array["Am", "Bm", "Cm", "Dm", "Em", "Fm", "Gm"]
     code_major = Array["A", "B", "C", "D", "E", "F", "G"]
     code_shinkou = Array["D - A - Bm - F#m - G - D - G - A", "F - G - Em - Am", "Am - F - G - C"]
+    code_shinkou_music = Array[]
     flase_recommend = Array[]
+    
     code = Array.new
     0.upto(6){|t|
       code[t] = [code_major[t],code_minor[t]]
@@ -55,7 +57,7 @@ class MessengerBotController < ActionController::Base
             
             elsif text.include?("コード進行")
                 code_sample = code.sample
-                sender.reply(text: "#{code_sample[0]},#{code_sample[1]}")
+                sender.reply(text: "#{code_sample[0]}\n,#{code_sample[1]}")
                 
             elsif text.include?("曲") & text.include?("おすすめ")
                 sender.reply(text: "#{music_recommend.sample}")
