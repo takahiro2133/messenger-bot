@@ -56,7 +56,7 @@ class MessengerBotController < ActionController::Base
             elsif text == "こんにちは"
                sender.reply(text: "#{text_random.sample}")
                
-            elsif text.include?("フレーズ") && text.include?("おすすめ")
+            elsif text.include?("フレーズ") & text.include?("おすすめ")
             
             elsif text.include?("コード進行")
                 code_sample = code.sample
