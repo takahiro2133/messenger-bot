@@ -15,7 +15,7 @@ class MessengerBotController < ActionController::Base
     
     text_random = Array["ギターって...いいよな", "ギター練習したのか？"]
     music_recommend = Array["Layla(Eric Clapton)", "Are You Gonna Go My Way（Lenny Kravitz)", "Walk This Way（Aerosmith)"]
-    music_recommend_tab = Array["aaa", "http://bandbigginer.boo.jp/wp-content/uploads/20120213areyougonnagomyway.jpg", "http://bandbigginer.boo.jp/wp-content/uploads/20120213walkthisway.jpg"]
+    music_recommend_tab = Array["https://www.dropbox.com/s/11rux1rqmuqzm6g/SP32-20041117-174117.gif?dl=0", "http://bandbigginer.boo.jp/wp-content/uploads/20120213areyougonnagomyway.jpg", "http://bandbigginer.boo.jp/wp-content/uploads/20120213walkthisway.jpg"]
     music_recommend_oto = Array["A","B","C"]
     code_minor = Array["Am", "Bm", "Cm", "Dm", "Em", "Fm", "Gm"]
     code_major = Array["A", "B", "C", "D", "E", "F", "G"]
