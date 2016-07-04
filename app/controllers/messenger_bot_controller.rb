@@ -5,30 +5,30 @@ class MessengerBotController < ActionController::Base
   
     BingAPIKEY = 'RWVDsTmHZY47DRyQQq4iJmvb6Ut1ENBPeRk+OdfFthY'
   def message(event,sender)
-    　text = event['message']['text']
+    　#text = event['message']['text']
 #コード
-      text_C  = 'http://mfc-music.com/wp-content/uploads/2015/03/C%E3%82%B3%E3%83%BC%E3%83%89.png'
-      text_G  = 'http://mfc-music.com/wp-content/uploads/2015/03/G%E3%82%B3%E3%83%BC%E3%83%89.png'
-      text_Am = 'http://mfc-music.com/wp-content/uploads/2015/03/Am%E3%82%B3%E3%83%BC%E3%83%89.png'
+      #text_C  = 'http://mfc-music.com/wp-content/uploads/2015/03/C%E3%82%B3%E3%83%BC%E3%83%89.png'
+      #text_G  = 'http://mfc-music.com/wp-content/uploads/2015/03/G%E3%82%B3%E3%83%BC%E3%83%89.png'
+      #text_Am = 'http://mfc-music.com/wp-content/uploads/2015/03/Am%E3%82%B3%E3%83%BC%E3%83%89.png'
 
     
     #コード音
-      text_C_music = 'https://www.dropbox.com/home?preview=C%E3%82%B3%E3%83%BC%E3%83%89.mp3'
+      #text_C_music = 'https://www.dropbox.com/home?preview=C%E3%82%B3%E3%83%BC%E3%83%89.mp3'
 
             if text.end_with?("天気")
                     uri = 'http://weather.livedoor.com/forecast/webservice/json/v1?city=130010'
                     res = JSON.load(open(uri).read)
                     weather_today = res['forecasts'][0]
-                    weather_tomorrow = res['forecasts'][1]
-                    link = res['link']
-                    city = res['location']['city']
+                    #weather_tomorrow = res['forecasts'][1]
+                    #link = res['link']
+                    #city = res['location']['city']
                     weather = weather_today['telop']
             
                     if weather_today['temperature']['max'] != nil
-                        max = "最高気温：#{weather_today['temperature']['max']['celsius']}℃"
+                        #max = "最高気温：#{weather_today['temperature']['max']['celsius']}℃"
                     end
                     if weather_today['temperature']['min'] != nil
-                        min = "最低気温：#{weather_today['temperature']['min']['celsius']}℃"
+                        #min = "最低気温：#{weather_today['temperature']['min']['celsius']}℃"
                     end
                     
                     today = "#{weather_today['dateLabel']}の#{city}の天気は「#{weather_today['telop']}」だな。"
@@ -58,9 +58,9 @@ class MessengerBotController < ActionController::Base
   end     
   
   def postback(event, sender)
-    text_C  = 'http://mfc-music.com/wp-content/uploads/2015/03/C%E3%82%B3%E3%83%BC%E3%83%89.png'
-    text_G  = 'http://mfc-music.com/wp-content/uploads/2015/03/G%E3%82%B3%E3%83%BC%E3%83%89.png'
-    text_Am = 'http://mfc-music.com/wp-content/uploads/2015/03/Am%E3%82%B3%E3%83%BC%E3%83%89.png'
+    #text_C  = 'http://mfc-music.com/wp-content/uploads/2015/03/C%E3%82%B3%E3%83%BC%E3%83%89.png'
+    #text_G  = 'http://mfc-music.com/wp-content/uploads/2015/03/G%E3%82%B3%E3%83%BC%E3%83%89.png'
+    #text_Am = 'http://mfc-music.com/wp-content/uploads/2015/03/Am%E3%82%B3%E3%83%BC%E3%83%89.png'
     
     
     text_C_music = 'https://www.dropbox.com/home?preview=C%E3%82%B3%E3%83%BC%E3%83%89.mp3'
