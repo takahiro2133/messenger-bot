@@ -193,7 +193,7 @@ class MessengerBotController < ActionController::Base
                                  }
                              })
                              
-              elsif text == "Gコード" or text == "gコード" or  text == "G" or text == "g"
+            elsif text == "Gコード" or text == "gコード" or  text == "G" or text == "g"
                sender.reply({ "attachment":{
                  "type":"template",
                          "payload":{
