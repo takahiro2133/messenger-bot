@@ -7,7 +7,10 @@ class MessengerBotController < ActionController::Base
   
   def message(event,sender)
     sender_id = event['sender']['id']
-    text_C  = 'http://mfc-music.com/wp-content/uploads/2015/03/C%E3%82%B3%E3%83%BC%E3%83%89.png'
+    text = event['message']['text']
+    
+    ##コード
+    text_C  = 'https://www.dropbox.com/home/code/c?preview=c-s.png'
     text_G  = 'http://mfc-music.com/wp-content/uploads/2015/03/G%E3%82%B3%E3%83%BC%E3%83%89.png'
     text_F = ''
     text_A = ''
@@ -18,8 +21,13 @@ class MessengerBotController < ActionController::Base
     text_Am = 'http://mfc-music.com/wp-content/uploads/2015/03/Am%E3%82%B3%E3%83%BC%E3%83%89.png'
     text_Em = ''
     text_Bm = ''
+    text_code_all = ''
+    
+    ##コード音
     text_C_music = 'https://www.dropbox.com/home?preview=C%E3%82%B3%E3%83%BC%E3%83%89.mp3'
-    text = event['message']['text']
+   
+    
+  
 
 #   music_recommend = MusicRecommend.all
 #     music_recommend.title
@@ -123,7 +131,10 @@ class MessengerBotController < ActionController::Base
                
 # =>        elsif (text =~ /^([CDEFGAB])/)   #正規表現 ruby
 #                 code = $1
+
             ##コードに対する応答
+           # elsif text.include?("コード一覧")
+            #    sender.reply({ "attachment": {"type": "image","payload": {"url": }}})
             elsif text == "Amコード" or text == "Amコード" or text == "Am" or text == "Am"
                 sender.reply({ "attachment":{
                  "type":"template",
@@ -140,7 +151,7 @@ class MessengerBotController < ActionController::Base
                                        },
                                        {
                                            "type":"postback",
-                                           "title":"Amの関連コード",
+                                           "title":"他のマイナーコード",
                                            "payload":"other_Am"
                                        },
                                        {
@@ -186,7 +197,7 @@ class MessengerBotController < ActionController::Base
                                  }
                              })
                              
-              elsif text == "Gコード" or text == "gコード"
+              elsif text == "Gコード" or text == "gコード" or  text == "G" or text == "g"
                sender.reply({ "attachment":{
                  "type":"template",
                          "payload":{
@@ -228,7 +239,7 @@ class MessengerBotController < ActionController::Base
   
   
   def postback(event, sender)
-    text_C  = 'http://mfc-music.com/wp-content/uploads/2015/03/C%E3%82%B3%E3%83%BC%E3%83%89.png'
+    text_C  = 'https://www.dropbox.com/home/code/c?preview=c-s.png'
     text_G  = 'http://mfc-music.com/wp-content/uploads/2015/03/G%E3%82%B3%E3%83%BC%E3%83%89.png'
     text_Am = 'http://mfc-music.com/wp-content/uploads/2015/03/Am%E3%82%B3%E3%83%BC%E3%83%89.png'
     
