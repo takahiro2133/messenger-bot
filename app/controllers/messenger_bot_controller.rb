@@ -82,7 +82,7 @@ class MessengerBotController < ActionController::Base
                     else  sender.reply( text: "天気なんか知るか" )
                     end
                     
-            if text == "こんにちは"
+            elsif text == "こんにちは"
                sender.reply(text: "#{text_random.sample}")
                
             
@@ -228,7 +228,7 @@ class MessengerBotController < ActionController::Base
              
             end
 
-            end
+  end
   
  
   def delivery(event, sender)
@@ -268,5 +268,5 @@ class MessengerBotController < ActionController::Base
     end
   end
   
-  end 
-end
+end 
+
