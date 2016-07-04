@@ -99,7 +99,7 @@ class MessengerBotController < ActionController::Base
             elsif text.include?("アルペジオ") && text.end_with?("？") or text == ("アルペジオ")
               sender.reply(text: "アルペジオは、1本1本の弦をバラバラに弾く奏法のことだな！")
               sender.reply({ "attachment": {
-              "type": "url",
+              "type": "audio",
               "payload": {
                  "url":text_C_music
                           }
