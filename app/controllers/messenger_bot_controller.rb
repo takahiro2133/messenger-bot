@@ -228,7 +228,7 @@ class MessengerBotController < ActionController::Base
              
             end
 
-  end
+            end
   
  
   def delivery(event, sender)
@@ -268,5 +268,5 @@ class MessengerBotController < ActionController::Base
     end
   end
   
-end 
+  end 
 end
