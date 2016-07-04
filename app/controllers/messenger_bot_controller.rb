@@ -79,14 +79,6 @@ class MessengerBotController < ActionController::Base
             elsif text == "こんにちは"
                sender.reply(text: "#{text_random.sample}")
                
-            elsif text == "音"
-            　sender.reply({ "attachment": {
-              "type": "audio",
-              "payload": {
-                 "url": "https://www.dropbox.com/home?preview=C%E3%82%B3%E3%83%BC%E3%83%89.mp3"
-                          }
-                                              }
-                           })
             
                
             elsif text.include?("フレーズ") & text.include?("おすすめ")
