@@ -14,7 +14,8 @@ class MessengerBotController < ActionController::Base
   def delivery(event, sender)
   end     
   
-  
+  def postback(event, sender)
+  end
   
 end 
 
