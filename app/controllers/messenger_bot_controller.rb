@@ -73,8 +73,8 @@ class MessengerBotController < ActionController::Base
                           sender.reply({ text: "#{today}こんな日は#{recommend_sample[0]}でも聞いてロックしろ！！" })
                     elsif weather == '曇時々雨'
                           sender.reply({ text: "#{today}こんな日はこの曲でも聞いてロックしろ！！" })
-                  #  elsif weather == '曇時々晴'
-                  #      　sender.reply({ text: "#{today}晴れるみたいだから、こんな曲はどうだ！！" })
+                 　 elsif weather == '曇時々晴'
+                      　　sender.reply({ text: "#{today}晴れるみたいだから、こんな曲はどうだ！！" })
                         　
                     else  sender.reply( text: "天気なんか知るか" )
                     end
@@ -98,6 +98,7 @@ class MessengerBotController < ActionController::Base
             #奏法などに対する応答
             elsif text.include?("アルペジオ") && text.end_with?("？") or text == ("アルペジオ")
               sender.reply(text: "アルペジオは、1本1本の弦をバラバラに弾く奏法のことだな！")
+              
               sender.reply({ "attachment": {
               "type": "audio",
               "payload": {
