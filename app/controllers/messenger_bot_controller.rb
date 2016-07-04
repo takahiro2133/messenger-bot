@@ -75,8 +75,15 @@ class MessengerBotController < ActionController::Base
             elsif text.include?("アルペジオ") && text.end_with?("？") or text == ("アルペジオ")
               sender.reply(text: "アルペジオは、1本1本の弦をバラバラに弾く奏法のことだな！")
             
+            elsif text.include?("チョーキング") && text.end_with?("？") or text == ("チョーキング")
+              sender.reply(text: "チョーキングは、弦を弾いた後、押し弦を動かして音の高さを変える奏法のことだな！")
+            
 #気分などに対する応答                
             elsif text.include?("疲れた") or text.include?("しんどい")
+               sender.reply(text: "今の君は#{code_minor.sample}な気分なんだな！！そんな君にはこのフレーズを伝授しよう")
+               sender.reply(text: "#{code_shinkou.sample}")
+            
+            elsif text.include?("楽しい") or text.include?("嬉しい")
                sender.reply(text: "今の君は#{code_minor.sample}な気分なんだな！！そんな君にはこのフレーズを伝授しよう")
                sender.reply(text: "#{code_shinkou.sample}")
             else
