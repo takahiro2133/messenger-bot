@@ -11,7 +11,7 @@ class MessengerBotController < ActionController::Base
     text_C  = 'http://mfc-music.com/wp-content/uploads/2015/03/C%E3%82%B3%E3%83%BC%E3%83%89.png'
     text_G  = 'http://mfc-music.com/wp-content/uploads/2015/03/G%E3%82%B3%E3%83%BC%E3%83%89.png'
     text_F = ''
-    text_A = ''
+    text_A = 'https://www.dropbox.com/s/ftzz61c7wvuoxw7/a3-s.png?dl=0'
     text_B = ''
     text_E = ''
     text_D = ''
@@ -154,7 +154,36 @@ class MessengerBotController < ActionController::Base
                                    }
                                  }
                              })
-            
+            elsif text == "Aコード"  or text == "A" 
+                sender.reply({ "attachment":{
+                 "type":"template",
+                         "payload":{
+                             "template_type":"generic",
+                             "elements":[
+                               {  "title":"Aコードの押さえ方",
+                                  "image_url":text_A,
+                                  "buttons":[
+                                       {
+                                           "type":"postback",
+                                           "title":"Aコードを使ったコード進行",
+                                           "payload":"using_A"
+                                       },
+                                       {
+                                           "type":"postback",
+                                           "title":"他のマイナーコード",
+                                           "payload":"other_A"
+                                       },
+                                       {
+                                           "type":"postback",
+                                           "title":"Aコードのサンプル音",
+                                           "payload":"music_A"
+                                       }
+                                            ]
+                              }
+                                ]       
+                                   }
+                                 }
+                             })
             elsif text == "Cコード" or text == "cコード" or text == "C" or text == "c"
                sender.reply({ "attachment":{
                  "type":"template",
@@ -244,6 +273,13 @@ class MessengerBotController < ActionController::Base
       sender.reply(text: "otherC")
     when "music_c"
       sender.reply(text:text_C_music)
+      
+    when "using_A"
+      sender.reply(text: "A！")
+    when "other_c"
+      sender.reply(text: "otherA")
+    when "music_c"
+      sender.reply(text: "aaa")
       
     when "using_g"
       sender.reply(text: "G！")
