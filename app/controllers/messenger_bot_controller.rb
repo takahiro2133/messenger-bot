@@ -120,6 +120,103 @@ class MessengerBotController < ActionController::Base
             elsif text.include?("疲れた") or text.include?("しんどい")
                sender.reply(text: "今の君は#{code_minor.sample}な気分なんだな！！そんな君にはこのフレーズを伝授しよう")
                sender.reply(text: "#{code_shinkou.sample}")
+               
+                        #コードに対する応答
+           # elsif text.include?("コード一覧")
+            #    sender.reply({ "attachment": {"type": "image","payload": {"url": }}})
+            elsif text == "Amコード" or text == "Amコード" or text == "Am" or text == "Am"
+                sender.reply({ "attachment":{
+                 "type":"template",
+                         "payload":{
+                             "template_type":"generic",
+                             "elements":[
+                               {  "title":"Amコードの押さえ方",
+                                  "image_url":text_Am,
+                                  "buttons":[
+                                       {
+                                           "type":"postback",
+                                           "title":"Amコードを使ったコード進行",
+                                           "payload":"using_Am"
+                                       },
+                                       {
+                                           "type":"postback",
+                                           "title":"他のマイナーコード",
+                                           "payload":"other_Am"
+                                       },
+                                       {
+                                           "type":"postback",
+                                           "title":"Amコードのサンプル音",
+                                           "payload":"music_Am"
+                                       }
+                                            ]
+                              }
+                                ]       
+                                   }
+                                 }
+                             })
+            
+            elsif text == "Cコード" or text == "cコード" or text == "C" or text == "c"
+               sender.reply({ "attachment":{
+                 "type":"template",
+                         "payload":{
+                             "template_type":"generic",
+                             "elements":[
+                               {  "title":"Cコードの押さえ方",
+                                  "image_url":text_C,
+                                  "buttons":[
+                                       {
+                                           "type":"postback",
+                                           "title":"Cコードを使ったコード進行",
+                                           "payload":"using_c"
+                                       },
+                                       {
+                                           "type":"postback",
+                                           "title":"Cの関連コード",
+                                           "payload":"other_c"
+                                       },
+                                       {
+                                           "type":"postback",
+                                           "title":"Cコードのサンプル音",
+                                           "payload":"music_c"
+                                       }
+                                            ]
+                              }
+                                ]       
+                                   }
+                                 }
+                             })
+                             
+            elsif text == "Gコード" or text == "gコード" or  text == "G" or text == "g"
+               sender.reply({ "attachment":{
+                 "type":"template",
+                         "payload":{
+                             "template_type":"generic",
+                             "elements":[
+                               {  "title":"Gコードの押さえ方",
+                                  "image_url":text_G,
+                                  "buttons":[
+                                       {
+                                           "type":"postback",
+                                           "title":"Gコードを使ったコード進行",
+                                           "payload":"using_g"
+                                       },
+                                       {
+                                           "type":"postback",
+                                           "title":"Gの関連コード",
+                                           "payload":"other_g"
+                                       },
+                                       {
+                                           "type":"postback",
+                                           "title":"Gコードのサンプル音",
+                                           "payload":"music_g"
+                                       }
+                                            ]
+                              }
+                                ]       
+                                   }
+                                 }
+                             })
+
 
             else  sender.reply(text: "hello")
             end
