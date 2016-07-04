@@ -48,23 +48,23 @@ class MessengerBotController < ActionController::Base
     }
     
           
-            if text.end_with?("天気")
-                    uri = 'http://weather.livedoor.com/forecast/webservice/json/v1?city=130010'
-                    res = JSON.load(open(uri).read)
-                    weather_today = res['forecasts'][0]
-                    weather_tomorrow = res['forecasts'][1]
-                    link = res['link']
-                    city = res['location']['city']
-                    weather = weather_today['telop']
+            #if text.end_with?("天気")
+                    #uri = 'http://weather.livedoor.com/forecast/webservice/json/v1?city=130010'
+                    #res = JSON.load(open(uri).read)
+                    #weather_today = res['forecasts'][0]
+                    #weather_tomorrow = res['forecasts'][1]
+                    #link = res['link']
+                    #city = res['location']['city']
+                    #weather = weather_today['telop']
             
-                    if weather_today['temperature']['max'] != nil
+                    #if weather_today['temperature']['max'] != nil
                         max = "最高気温：#{weather_today['temperature']['max']['celsius']}℃"
-                    end
-                    if weather_today['temperature']['min'] != nil
+                    #end
+                    #if weather_today['temperature']['min'] != nil
                         min = "最低気温：#{weather_today['temperature']['min']['celsius']}℃"
-                    end
+                    #end
                     
-                    today = "#{weather_today['dateLabel']}の#{city}の天気は「#{weather_today['telop']}」だな。"
+                    #today = "#{weather_today['dateLabel']}の#{city}の天気は「#{weather_today['telop']}」だな。"
                     
                    # if weather == '晴れ'
                    #       sender.reply({ text: "#{today}今日におすすめの曲はこれだ！！" })
@@ -82,7 +82,7 @@ class MessengerBotController < ActionController::Base
                     #else  sender.reply( text: "天気なんか知るか" )
                     #end
                     
-            elsif text == "こんにちは"
+            if text == "こんにちは"
                sender.reply(text: "#{text_random.sample}")
                
             
