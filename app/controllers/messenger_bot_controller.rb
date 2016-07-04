@@ -24,9 +24,9 @@ class MessengerBotController < ActionController::Base
 #   music_recommend = MusicRecommend.all
 #     music_recommend.title
     text_random = Array["ギターって...いいよな", "ギター練習したのか？"]
-    music_recommend = Array["Layla(Eric Clapton)", "Are You Gonna Go My Way（Lenny Kravitz)", "Walk This Way（Aerosmith)","20th Century Boy（T.Rex）"]
-    music_recommend_tab = Array["https://www.dropbox.com/home?preview=SP32-20041117-174117.gif", "http://bandbigginer.boo.jp/wp-content/uploads/20120213areyougonnagomyway.jpg", "http://bandbigginer.boo.jp/wp-content/uploads/20120213walkthisway.jpg","http://bandbigginer.boo.jp/wp-content/uploads/2012021320thcenturyboy.jpg"]
-    music_recommend_oto = Array["A","B","C"]
+    music_recommend = Array["Layla(Eric Clapton)", "Are You Gonna Go My Way（Lenny Kravitz)", "Walk This Way（Aerosmith)","20th Century Boy（T.Rex)", "Whole Lotta Love（Led Zeppelin）", "Helter Skelter（The Beatles）","Painkiller（Judas Priest）","歌舞伎町の女王（椎名林檎）"]
+    music_recommend_tab = Array["https://www.dropbox.com/home?preview=SP32-20041117-174117.gif", "http://bandbigginer.boo.jp/wp-content/uploads/20120213areyougonnagomyway.jpg", "http://bandbigginer.boo.jp/wp-content/uploads/20120213walkthisway.jpg","http://bandbigginer.boo.jp/wp-content/uploads/2012021320thcenturyboy.jpg","http://bandbigginer.boo.jp/wp-content/uploads/20120213wholelottalove.jpg", "http://bandbigginer.boo.jp/wp-content/uploads/20120213helterskelter.jpg", "http://bandbigginer.boo.jp/wp-content/uploads/20120213painkiller.jpg", "歌舞伎町の女王（椎名林檎）"]
+    music_recommend_oto = Array["A","B","C","D","E","F","G"]
     code_minor = Array["Am", "Bm", "Cm", "Dm", "Em", "Fm", "Gm"]
     code_major = Array["A", "B", "C", "D", "E", "F", "G"]
     code_shinkou = Array["D - A - Bm - F#m - G - D - G - A", "F - G - Em - Am", "Am - F - G - C"]
@@ -73,9 +73,8 @@ class MessengerBotController < ActionController::Base
                           sender.reply({ text: "#{today}こんな日は#{recommend_sample[0]}でも聞いてロックしろ！！" })
                     elsif weather == '曇時々雨'
                           sender.reply({ text: "#{today}こんな日はこの曲でも聞いてロックしろ！！" })
-                 　# elsif weather == '曇時々晴'
+                 　 # elsif weather == '曇時々晴'
                     #  　　sender.reply({ text: "#{today}晴れるみたいだから、こんな曲はどうだ！！" })
-                        　
                     else  sender.reply( text: "天気なんか知るか" )
                     end
                     
