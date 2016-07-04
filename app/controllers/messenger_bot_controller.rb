@@ -7,38 +7,7 @@ class MessengerBotController < ActionController::Base
   
   def message(event,sender)
     text = event['message']['text']
-　　
-　　 #コード
-    text_C  = 'http://mfc-music.com/wp-content/uploads/2015/03/C%E3%82%B3%E3%83%BC%E3%83%89.png'
-    text_G  = 'http://mfc-music.com/wp-content/uploads/2015/03/G%E3%82%B3%E3%83%BC%E3%83%89.png'
-    text_F = ''
-    text_A = 'https://www.dropbox.com/s/ftzz61c7wvuoxw7/a3-s.png?dl=0'
-    text_B = ''
-    text_E = ''
-    text_D = ''
-    text_Fsm = ''
-    text_Am = 'http://mfc-music.com/wp-content/uploads/2015/03/Am%E3%82%B3%E3%83%BC%E3%83%89.png'
-    text_Em = ''
-    text_Bm = ''
-    text_code_all = ''
-    
-    #コード音
-    text_C_music = 'https://www.dropbox.com/home?preview=C%E3%82%B3%E3%83%BC%E3%83%89.mp3'
-  
-    
-    code = Array.new
-    0.upto(6){|t|
-      code[t] = [code_shinkou[t],code_shinkou_music[t]]
-     }
-    
-    recommend =Array.new
-      0.upto(6){|t|
-      recommend[t] = [music_recommend[t],music_recommend_tab[t],music_recommend_oto[t]]
-     }
-    
-          
-
-　　　sender.reply(text: "#{text}")
+　　sender.reply(text: "#{text}")
             
       
   end
