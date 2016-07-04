@@ -13,6 +13,13 @@ class MessengerBotController < ActionController::Base
   end     
   
   def postback(event, sender)
+        payload = event["postback"]["payload"]
+    case payload
+    when "using_c"
+      sender.reply(text: "C！")
+    when "other_c"
+      sender.reply(text: "otherC")
+    end
   end
   
 end 
