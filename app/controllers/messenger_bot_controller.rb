@@ -4,6 +4,7 @@ class MessengerBotController < ActionController::Base
     require 'uri'
   
   def message(event,sender)
+      text = event['message']['text']
 #奏法などに対する応答
             if text.include?("アルペジオ") && text.end_with?("？") or text == ("アルペジオ")
               sender.reply(text: "アルペジオは、1本1本の弦をバラバラに弾く奏法のことだな！")
