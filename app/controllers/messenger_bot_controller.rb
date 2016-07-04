@@ -38,7 +38,7 @@ class MessengerBotController < ActionController::Base
     code_shinkou_major = Array["C-G-Am-Em-F-C-F-G",""]
     code_shinkou_major_music = Array[]
     code_shinkou_minor = Array["Am-Dm-G-Am","Am-Dm-E7-Am","Am-G-F-Em-Dm-C-Bm7-5-E7",""]
-    code_shinkou_minor_music = Array[""]
+    code_shinkou_minor_music = Array[]
     flase_recommend = Array[]
     #天気　１０通りくらい
     music_recommend_hare = Array["Back in Black(AC/DC)","Brainstorm(Arctic Monkeys)","Loney Boy(The Loney Boy)","Smells Like Tenn Spirit(Nirvana)","Voodoo Child (Jimi Hendrix)","Another number(The Cribes)","Take The Long Road And Walk It(The Music)","Immigrant Song(Jimi Hendrix)","12:51(The Strokes)","Supersonic(Oasis)","Can't Stop(Red Hot Chili Peppers)"]
@@ -75,7 +75,7 @@ class MessengerBotController < ActionController::Base
                     today = "#{weather_today['dateLabel']}の#{city}の天気は「#{weather_today['telop']}」だな。"
                     
                     if weather == '晴れ'
-                          sender.reply({ text: "#{today}こんな晴れた日には、#{music_recommend_hare.sample}でロックンロール！！" })
+                          sender.reply({ text: "#{today}こんな晴れた日には、でロックンロール！！" })
                     elsif weather == '曇のち雨'
                           sender.reply({ text: "#{today}こんなしみったれた日はこの曲でも聞いてロックしろ！！" })
                     elsif weather == '雨'
