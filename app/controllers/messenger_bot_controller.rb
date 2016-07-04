@@ -124,13 +124,13 @@ class MessengerBotController < ActionController::Base
 # =>        elsif (text =~ /^([CDEFGAB])/)   #正規表現 ruby
 #                 code = $1
             ##コードに対する応答
-            elsif (["gコード", "Gコード", "G", "g"].find(text))
+            elsif text == "Amコード" or text == "Amコード" or text == "Am" or text == "Am"
                 sender.reply({ "attachment":{
                  "type":"template",
                          "payload":{
                              "template_type":"generic",
                              "elements":[
-                               {  "title":"Cコードの押さえ方",
+                               {  "title":"Amコードの押さえ方",
                                   "image_url":text_Am,
                                   "buttons":[
                                        {
