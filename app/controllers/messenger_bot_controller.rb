@@ -7,9 +7,7 @@ class MessengerBotController < ActionController::Base
   
   def message(event,sender)
     text = event['message']['text']
-　　sender.reply(text: "#{text}")
-            
-      
+　　sender.reply(text: "hello")
   end
   
  
