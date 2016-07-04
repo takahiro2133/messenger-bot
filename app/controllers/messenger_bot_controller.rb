@@ -26,11 +26,7 @@ class MessengerBotController < ActionController::Base
     ##コード音
     text_C_music = 'https://www.dropbox.com/home?preview=C%E3%82%B3%E3%83%BC%E3%83%89.mp3'
    
-    
-  
-
-#   music_recommend = MusicRecommend.all
-#     music_recommend.title
+   
     text_random = Array["ギターって...いいよな", "ギター練習したのか？"]
     music_recommend = Array["Layla(Eric Clapton)", "Are You Gonna Go My Way（Lenny Kravitz)", "Walk This Way（Aerosmith)","20th Century Boy（T.Rex)", "Whole Lotta Love（Led Zeppelin）", "Helter Skelter（The Beatles）","Painkiller（Judas Priest）","歌舞伎町の女王（椎名林檎）"]
     music_recommend_tab = Array["https://www.dropbox.com/home?preview=SP32-20041117-174117.gif", "http://bandbigginer.boo.jp/wp-content/uploads/20120213areyougonnagomyway.jpg", "http://bandbigginer.boo.jp/wp-content/uploads/20120213walkthisway.jpg","http://bandbigginer.boo.jp/wp-content/uploads/2012021320thcenturyboy.jpg","http://bandbigginer.boo.jp/wp-content/uploads/20120213wholelottalove.jpg", "http://bandbigginer.boo.jp/wp-content/uploads/20120213helterskelter.jpg", "http://bandbigginer.boo.jp/wp-content/uploads/20120213painkiller.jpg", "歌舞伎町の女王（椎名林檎）"]
@@ -132,7 +128,7 @@ class MessengerBotController < ActionController::Base
 # =>        elsif (text =~ /^([CDEFGAB])/)   #正規表現 ruby
 #                 code = $1
 
-            ##コードに対する応答
+            #コードに対する応答
            # elsif text.include?("コード一覧")
             #    sender.reply({ "attachment": {"type": "image","payload": {"url": }}})
             elsif text == "Amコード" or text == "Amコード" or text == "Am" or text == "Am"
