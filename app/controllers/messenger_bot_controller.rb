@@ -7,7 +7,8 @@ class MessengerBotController < ActionController::Base
   
   def message(event,sender)
     text = event['message']['text']
-        #コード
+　　
+　　 #コード
     text_C  = 'http://mfc-music.com/wp-content/uploads/2015/03/C%E3%82%B3%E3%83%BC%E3%83%89.png'
     text_G  = 'http://mfc-music.com/wp-content/uploads/2015/03/G%E3%82%B3%E3%83%BC%E3%83%89.png'
     text_F = ''
@@ -33,7 +34,16 @@ class MessengerBotController < ActionController::Base
     code_major = Array["A", "B", "C", "D", "E", "F", "G"]
     code_shinkou = Array["D - A - Bm - F#m - G - D - G - A", "F - G - Em - Am", "Am - F - G - C"]
     code_shinkou_music = Array["aaa","bbb","ccc"]
+    #気分　８通りくらい
+    code_shinkou_major = Array["C-G-Am-Em-F-C-F-G",""]
+    code_shinkou_major_music = Array[]
+    code_shinkou_minor = Array["Am-Dm-G-Am","Am-Dm-E7-Am","Am-G-F-Em-Dm-C-Bm7-5-E7",""]
+    code_shinkou_minor_music = Array[""]
     flase_recommend = Array[]
+    #天気　１０通りくらい
+    music_recommend_hare = Array["Back in Black(AC/DC)","Brainstorm(Arctic Monkeys)","Loney Boy(The Loney Boy)","Smells Like Tenn Spirit(Nirvana)","Voodoo Child (Jimi Hendrix)","Another number(The Cribes)","Take The Long Road And Walk It(The Music)","Immigrant Song(Jimi Hendrix)","12:51(The Strokes)","Supersonic(Oasis)","Can't Stop(Red Hot Chili Peppers)"]
+    music_recommend_ame = Array[]
+    music_recommend_kumori = Array[]
     
     code = Array.new
     0.upto(6){|t|
@@ -65,7 +75,7 @@ class MessengerBotController < ActionController::Base
                     today = "#{weather_today['dateLabel']}の#{city}の天気は「#{weather_today['telop']}」だな。"
                     
                     if weather == '晴れ'
-                          sender.reply({ text: "#{today}今日におすすめの曲はこれだ！！" })
+                          sender.reply({ text: "#{today}こんな晴れた日には、#{music_recommend_hare}でロックンロール！！" })
                     elsif weather == '曇のち雨'
                           sender.reply({ text: "#{today}こんなしみったれた日はこの曲でも聞いてロックしろ！！" })
                     elsif weather == '雨'
@@ -276,9 +286,9 @@ class MessengerBotController < ActionController::Base
       
     when "using_A"
       sender.reply(text: "A！")
-    when "other_c"
+    when "other_A"
       sender.reply(text: "otherA")
-    when "music_c"
+    when "music_A"
       sender.reply(text: "aaa")
       
     when "using_g"
