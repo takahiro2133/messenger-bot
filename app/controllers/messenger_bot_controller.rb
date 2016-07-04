@@ -8,14 +8,23 @@ class MessengerBotController < ActionController::Base
   def message(event,sender)
     text_C  = 'http://mfc-music.com/wp-content/uploads/2015/03/C%E3%82%B3%E3%83%BC%E3%83%89.png'
     text_G  = 'http://mfc-music.com/wp-content/uploads/2015/03/G%E3%82%B3%E3%83%BC%E3%83%89.png'
+    text_F = ''
+    text_A = ''
+    text_B = ''
+    text_E = ''
+    text_D = ''
+    text_Fsm = ''
     text_Am = 'http://mfc-music.com/wp-content/uploads/2015/03/Am%E3%82%B3%E3%83%BC%E3%83%89.png'
+    text_Em = ''
+    text_Bm = ''
     text_C_music = 'https://www.dropbox.com/home?preview=C%E3%82%B3%E3%83%BC%E3%83%89.mp3'
     text = event['message']['text']
 
-    
+#   music_recommend = MusicRecommend.all
+#     music_recommend.title
     text_random = Array["ギターって...いいよな", "ギター練習したのか？"]
-    music_recommend = Array["Layla(Eric Clapton)", "Are You Gonna Go My Way（Lenny Kravitz)", "Walk This Way（Aerosmith)"]
-    music_recommend_tab = Array["https://www.dropbox.com/home?preview=SP32-20041117-174117.gif", "http://bandbigginer.boo.jp/wp-content/uploads/20120213areyougonnagomyway.jpg", "http://bandbigginer.boo.jp/wp-content/uploads/20120213walkthisway.jpg"]
+    music_recommend = Array["Layla(Eric Clapton)", "Are You Gonna Go My Way（Lenny Kravitz)", "Walk This Way（Aerosmith)","20th Century Boy（T.Rex）"]
+    music_recommend_tab = Array["https://www.dropbox.com/home?preview=SP32-20041117-174117.gif", "http://bandbigginer.boo.jp/wp-content/uploads/20120213areyougonnagomyway.jpg", "http://bandbigginer.boo.jp/wp-content/uploads/20120213walkthisway.jpg","http://bandbigginer.boo.jp/wp-content/uploads/2012021320thcenturyboy.jpg"]
     music_recommend_oto = Array["A","B","C"]
     code_minor = Array["Am", "Bm", "Cm", "Dm", "Em", "Fm", "Gm"]
     code_major = Array["A", "B", "C", "D", "E", "F", "G"]
@@ -106,8 +115,10 @@ class MessengerBotController < ActionController::Base
                sender.reply(text: "今の君は#{code_minor.sample}な気分なんだな！！そんな君にはこのフレーズを伝授しよう")
                sender.reply(text: "#{code_shinkou.sample}")
                
-               
-            #コードに対する応答               
+# =>        elsif (text =~ /^([CDEFGAB])/)   #正規表現 ruby
+#                 code = $1
+            #コードに対する応答
+#           elsif (["Cコード", "cコード", "C", "c"].find(text))
             elsif text == "Cコード" or text == "cコード" or text == "C" or text == "c"
                sender.reply({ "attachment":{
                  "type":"template",
