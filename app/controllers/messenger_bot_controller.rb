@@ -4,8 +4,27 @@ class MessengerBotController < ActionController::Base
     require 'uri'
   
   def message(event,sender)
-      text = event['message']['text']
-           if text == "天気"
+    text = event['message']['text']
+    text_random = Array["ギターって...いいよな", "ギター練習したのか？"]
+    music_recommend = Array["Layla(Eric Clapton)", "Are You Gonna Go My Way（Lenny Kravitz)", "Walk This Way（Aerosmith)","20th Century Boy（T.Rex)", "Whole Lotta Love（Led Zeppelin）", "Helter Skelter（The Beatles）","Painkiller（Judas Priest）","歌舞伎町の女王（椎名林檎）"]
+    music_recommend_tab = Array["https://www.dropbox.com/home?preview=SP32-20041117-174117.gif", "http://bandbigginer.boo.jp/wp-content/uploads/20120213areyougonnagomyway.jpg", "http://bandbigginer.boo.jp/wp-content/uploads/20120213walkthisway.jpg","http://bandbigginer.boo.jp/wp-content/uploads/2012021320thcenturyboy.jpg","http://bandbigginer.boo.jp/wp-content/uploads/20120213wholelottalove.jpg", "http://bandbigginer.boo.jp/wp-content/uploads/20120213helterskelter.jpg", "http://bandbigginer.boo.jp/wp-content/uploads/20120213painkiller.jpg", "歌舞伎町の女王（椎名林檎）"]
+    music_recommend_oto = Array["A","B","C","D","E","F","G"]
+    code_minor = Array["Am", "Bm", "Cm", "Dm", "Em", "Fm", "Gm"]
+    code_major = Array["A", "B", "C", "D", "E", "F", "G"]
+    code_shinkou = Array["D - A - Bm - F#m - G - D - G - A", "F - G - Em - Am", "Am - F - G - C"]
+    code_shinkou_music = Array["aaa","bbb","ccc"]
+
+    code_shinkou_major = Array["C-G-Am-Em-F-C-F-G",""]
+    code_shinkou_major_music = Array[]
+    code_shinkou_minor = Array["Am-Dm-G-Am","Am-Dm-E7-Am","Am-G-F-Em-Dm-C-Bm7-5-E7"]
+    code_shinkou_minor_music = Array[]
+    flase_recommend = Array[]
+
+    music_recommend_hare = Array["Back in Black(AC/DC)","Brainstorm(Arctic Monkeys)","Loney Boy(The Loney Boy)","Smells Like Tenn Spirit(Nirvana)","Voodoo Child (Jimi Hendrix)","Another number(The Cribes)","Take The Long Road And Walk It(The Music)","Immigrant Song(Jimi Hendrix)","12:51(The Strokes)","Supersonic(Oasis)","Can't Stop(Red Hot Chili Peppers)"]
+    music_recommend_ame = Array[]
+    music_recommend_kumori = Array[]
+    
+            if text == "天気"
                     uri = 'http://weather.livedoor.com/forecast/webservice/json/v1?city=130010'
                     res = JSON.load(open(uri).read)
                     weather_today = res['forecasts'][0]
