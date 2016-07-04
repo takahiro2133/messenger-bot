@@ -10,7 +10,7 @@ class MessengerBotController < ActionController::Base
     text = event['message']['text']
     
     ##コード
-    text_C  = 'https://www.dropbox.com/s/skiddfqv85hj8cx/c3-s.png?dl=0'
+    text_C  = 'https://drive.google.com/a/dac.co.jp/file/d/0BzElVlpSj45kTjV5YmdKeTNPTDA/view?usp=sharing'
     text_G  = 'http://mfc-music.com/wp-content/uploads/2015/03/G%E3%82%B3%E3%83%BC%E3%83%89.png'
     text_F = ''
     text_A = ''
