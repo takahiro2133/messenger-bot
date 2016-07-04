@@ -78,6 +78,15 @@ class MessengerBotController < ActionController::Base
                     
             elsif text == "こんにちは"
                sender.reply(text: "#{text_random.sample}")
+               
+            elsif text == "音"
+            　sender.reply({ "attachment": {
+              "type": "audio",
+              "payload": {
+                 "url": "https://www.dropbox.com/home?preview=C%E3%82%B3%E3%83%BC%E3%83%89.mp3"
+                          }
+                                              }
+                           })
             
                
             elsif text.include?("フレーズ") & text.include?("おすすめ")
@@ -95,7 +104,7 @@ class MessengerBotController < ActionController::Base
             elsif text.include?("アルペジオ") && text.end_with?("？") or text == ("アルペジオ")
               sender.reply(text: "アルペジオは、1本1本の弦をバラバラに弾く奏法のことだな！")
               sender.reply({ "attachment": {
-              "type": "audio",
+              "type": "url",
               "payload": {
                  "url": "https://www.dropbox.com/home?preview=C%E3%82%B3%E3%83%BC%E3%83%89.mp3"
                           }
