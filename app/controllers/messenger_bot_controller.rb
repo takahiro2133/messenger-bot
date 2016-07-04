@@ -3,13 +3,13 @@ class MessengerBotController < ActionController::Base
     require 'open-uri'
     require 'uri'
   
-  BingAPIKEY = 'RWVDsTmHZY47DRyQQq4iJmvb6Ut1ENBPeRk+OdfFthY'
+    BingAPIKEY = 'RWVDsTmHZY47DRyQQq4iJmvb6Ut1ENBPeRk+OdfFthY'
   
   def message(event,sender)
     sender_id = event['sender']['id']
     text = event['message']['text']
     
-    ##コード
+    #コード
     text_C  = 'http://mfc-music.com/wp-content/uploads/2015/03/C%E3%82%B3%E3%83%BC%E3%83%89.png'
     text_G  = 'http://mfc-music.com/wp-content/uploads/2015/03/G%E3%82%B3%E3%83%BC%E3%83%89.png'
     text_F = ''
@@ -23,7 +23,7 @@ class MessengerBotController < ActionController::Base
     text_Bm = ''
     text_code_all = ''
     
-    ##コード音
+    #コード音
     text_C_music = 'https://www.dropbox.com/home?preview=C%E3%82%B3%E3%83%BC%E3%83%89.mp3'
    
    
@@ -58,10 +58,10 @@ class MessengerBotController < ActionController::Base
                     #weather = weather_today['telop']
             
                     #if weather_today['temperature']['max'] != nil
-                        max = "最高気温：#{weather_today['temperature']['max']['celsius']}℃"
+                    #    max = "最高気温：#{weather_today['temperature']['max']['celsius']}℃"
                     #end
                     #if weather_today['temperature']['min'] != nil
-                        min = "最低気温：#{weather_today['temperature']['min']['celsius']}℃"
+                    #    min = "最低気温：#{weather_today['temperature']['min']['celsius']}℃"
                     #end
                     
                     #today = "#{weather_today['dateLabel']}の#{city}の天気は「#{weather_today['telop']}」だな。"
@@ -91,6 +91,7 @@ class MessengerBotController < ActionController::Base
                 recommend_sample = recommend.sample
                 sender.reply(text: "[曲名]\n#{recommend_sample[0]}\n[サンプル音]\n#{recommend_sample[2]}\n[TAB]")
                 sender.reply({ "attachment": {"type": "image","payload": {"url": recommend_sample[1]}}})
+                
             elsif text.include?("コード進行")
                 code_sample = code.sample
                 sender.reply(text: "#{code_sample[0]}\n[サンプル音]\n#{code_sample[1]}")
