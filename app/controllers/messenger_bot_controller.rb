@@ -6,6 +6,7 @@ class MessengerBotController < ActionController::Base
   BingAPIKEY = 'RWVDsTmHZY47DRyQQq4iJmvb6Ut1ENBPeRk+OdfFthY'
   
   def message(event,sender)
+    sender_id = event['sender']['id']
     text_C  = 'http://mfc-music.com/wp-content/uploads/2015/03/C%E3%82%B3%E3%83%BC%E3%83%89.png'
     text_G  = 'http://mfc-music.com/wp-content/uploads/2015/03/G%E3%82%B3%E3%83%BC%E3%83%89.png'
     text_F = ''
@@ -77,6 +78,7 @@ class MessengerBotController < ActionController::Base
                     
             elsif text == "こんにちは"
                sender.reply(text: "#{text_random.sample}")
+            
                
             elsif text.include?("フレーズ") & text.include?("おすすめ")
                 recommend_sample = recommend.sample
@@ -93,7 +95,7 @@ class MessengerBotController < ActionController::Base
             elsif text.include?("アルペジオ") && text.end_with?("？") or text == ("アルペジオ")
               sender.reply(text: "アルペジオは、1本1本の弦をバラバラに弾く奏法のことだな！")
               sender.reply({ "attachment": {
-              "type": "web_url",
+              "type": "audio",
               "payload": {
                  "url": "https://www.dropbox.com/home?preview=C%E3%82%B3%E3%83%BC%E3%83%89.mp3"
                           }
