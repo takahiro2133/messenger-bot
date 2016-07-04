@@ -5,7 +5,7 @@ class MessengerBotController < ActionController::Base
   
     BingAPIKEY = 'RWVDsTmHZY47DRyQQq4iJmvb6Ut1ENBPeRk+OdfFthY'
   def message(event,sender)
-       　 text = event['message']['text']
+    　text = event['message']['text']
 #コード
     text_C  = 'http://mfc-music.com/wp-content/uploads/2015/03/C%E3%82%B3%E3%83%BC%E3%83%89.png'
     text_G  = 'http://mfc-music.com/wp-content/uploads/2015/03/G%E3%82%B3%E3%83%BC%E3%83%89.png'
@@ -43,14 +43,14 @@ class MessengerBotController < ActionController::Base
     code_major = Array["A", "B", "C", "D", "E", "F", "G"]
     code_shinkou = Array["D - A - Bm - F#m - G - D - G - A", "F - G - Em - Am", "Am - F - G - C"]
     code_shinkou_music = Array["aaa","bbb","ccc"]
-    #気分　８通りくらい
+#気分　８通りくらい
     code_shinkou_major = Array["C-G-Am-Em-F-C-F-G",""]
     code_shinkou_major_music = Array[]
     code_shinkou_minor = Array["Am-Dm-G-Am","Am-Dm-E7-Am","Am-G-F-Em-Dm-C-Bm7-5-E7"]
     code_shinkou_minor_music = Array[]
     flase_recommend = Array[]
-    #天気　１０通りくらい
-    #music_recommend_hare = Array["Back in Black(AC/DC)","Brainstorm(Arctic Monkeys)","Loney Boy(The Loney Boy)","Smells Like Tenn Spirit(Nirvana)","Voodoo Child (Jimi Hendrix)","Another number(The Cribes)","Take The Long Road And Walk It(The Music)","Immigrant Song(Jimi Hendrix)","12:51(The Strokes)","Supersonic(Oasis)","Can't Stop(Red Hot Chili Peppers)"]
+#天気　１０通りくらい
+    music_recommend_hare = Array["Back in Black(AC/DC)","Brainstorm(Arctic Monkeys)","Loney Boy(The Loney Boy)","Smells Like Tenn Spirit(Nirvana)","Voodoo Child (Jimi Hendrix)","Another number(The Cribes)","Take The Long Road And Walk It(The Music)","Immigrant Song(Jimi Hendrix)","12:51(The Strokes)","Supersonic(Oasis)","Can't Stop(Red Hot Chili Peppers)"]
     music_recommend_ame = Array[]
     music_recommend_kumori = Array[]
 
@@ -102,7 +102,7 @@ class MessengerBotController < ActionController::Base
             elsif text.include?("曲") & text.include?("おすすめ")
                 sender.reply(text: "#{music_recommend.sample}")
             
-                        #奏法などに対する応答
+ #奏法などに対する応答
             elsif text.include?("アルペジオ") && text.end_with?("？") or text == ("アルペジオ")
               sender.reply(text: "アルペジオは、1本1本の弦をバラバラに弾く奏法のことだな！")
               
@@ -125,7 +125,7 @@ class MessengerBotController < ActionController::Base
             
             
             #気分などに対する応答                
-            elsif text.include?("疲れた") or text.include?("しんどい")
+            elsif text.include?("疲れた") or text.include?("しんどい") or text.include?("きつい")
                sender.reply(text: "今の君は#{code_minor.sample}な気分なんだな！！そんな君にはこのフレーズを伝授しよう")
                sender.reply(text: "#{code_shinkou.sample}")
                
