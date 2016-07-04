@@ -101,7 +101,7 @@ class MessengerBotController < ActionController::Base
               sender.reply({ "attachment": {
               "type": "url",
               "payload": {
-                 "url": "https://www.dropbox.com/home?preview=C%E3%82%B3%E3%83%BC%E3%83%89.mp3"
+                 "url":text_C_music
                           }
                                               }
                            })
