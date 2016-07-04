@@ -39,7 +39,7 @@ class MessengerBotController < ActionController::Base
     }
     
     recommend =Array.new
-      0.upto(2){|t|
+      0.upto(6){|t|
       recommend[t] = [music_recommend[t],music_recommend_tab[t],music_recommend_oto[t]]
     }
     
@@ -73,8 +73,8 @@ class MessengerBotController < ActionController::Base
                           sender.reply({ text: "#{today}こんな日は#{recommend_sample[0]}でも聞いてロックしろ！！" })
                     elsif weather == '曇時々雨'
                           sender.reply({ text: "#{today}こんな日はこの曲でも聞いてロックしろ！！" })
-                 　 # elsif weather == '曇時々晴'
-                    #  　　sender.reply({ text: "#{today}晴れるみたいだから、こんな曲はどうだ！！" })
+                 　 elsif weather == '曇時々晴'
+                      　　sender.reply({ text: "#{today}晴れるみたいだから、こんな曲はどうだ！！" })
                     else  sender.reply( text: "天気なんか知るか" )
                     end
                     
