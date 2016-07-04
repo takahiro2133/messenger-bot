@@ -6,7 +6,6 @@ class MessengerBotController < ActionController::Base
     BingAPIKEY = 'RWVDsTmHZY47DRyQQq4iJmvb6Ut1ENBPeRk+OdfFthY'
   
   def message(event,sender)
-    text = event['message']['text']
 　　sender.reply(text: "hello")
   end
   
