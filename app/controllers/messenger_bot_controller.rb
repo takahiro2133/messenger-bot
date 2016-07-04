@@ -123,8 +123,38 @@ class MessengerBotController < ActionController::Base
                
 # =>        elsif (text =~ /^([CDEFGAB])/)   #正規表現 ruby
 #                 code = $1
-            #コードに対する応答
-#           elsif (["Cコード", "cコード", "C", "c"].find(text))
+            ##コードに対する応答
+            elsif (["Cコード", "cコード", "C", "c"].find(text))
+                sender.reply({ "attachment":{
+                 "type":"template",
+                         "payload":{
+                             "template_type":"generic",
+                             "elements":[
+                               {  "title":"Cコードの押さえ方",
+                                  "image_url":text_Am,
+                                  "buttons":[
+                                       {
+                                           "type":"postback",
+                                           "title":"Cコードを使ったコード進行",
+                                           "payload":"using_Am"
+                                       },
+                                       {
+                                           "type":"postback",
+                                           "title":"Cの関連コード",
+                                           "payload":"other_Am"
+                                       },
+                                       {
+                                           "type":"postback",
+                                           "title":"Cコードのサンプル音",
+                                           "payload":"music_Am"
+                                       }
+                                            ]
+                              }
+                                ]       
+                                   }
+                                 }
+                             })
+            
             elsif text == "Cコード" or text == "cコード" or text == "C" or text == "c"
                sender.reply({ "attachment":{
                  "type":"template",
@@ -220,6 +250,13 @@ class MessengerBotController < ActionController::Base
       sender.reply(text: "otherG")
     when "music_g"
       sender.reply(text: "はは")
+      
+    when "using_Am"
+      sender.reply(text: "Am！")
+    when "other_Am"
+      sender.reply(text: "otherAm")
+    when "music_Am"
+      sender.reply(text: "Am")
     end
   end
   
