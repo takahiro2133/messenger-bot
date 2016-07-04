@@ -74,6 +74,11 @@ class MessengerBotController < ActionController::Base
 #奏法などに対する応答
             elsif text.include?("アルペジオ") && text.end_with?("？") or text == ("アルペジオ")
               sender.reply(text: "アルペジオは、1本1本の弦をバラバラに弾く奏法のことだな！")
+            
+#気分などに対する応答                
+            elsif text.include?("疲れた") or text.include?("しんどい")
+               sender.reply(text: "今の君は#{code_minor.sample}な気分なんだな！！そんな君にはこのフレーズを伝授しよう")
+               sender.reply(text: "#{code_shinkou.sample}")
             else
               sender.reply(text: "hello")
             end
