@@ -124,7 +124,7 @@ class MessengerBotController < ActionController::Base
 # =>        elsif (text =~ /^([CDEFGAB])/)   #正規表現 ruby
 #                 code = $1
             ##コードに対する応答
-            elsif (["Cコード", "cコード", "C", "c"].find(text))
+            elsif (["gコード", "Gコード", "G", "g"].find(text))
                 sender.reply({ "attachment":{
                  "type":"template",
                          "payload":{
@@ -135,17 +135,17 @@ class MessengerBotController < ActionController::Base
                                   "buttons":[
                                        {
                                            "type":"postback",
-                                           "title":"Cコードを使ったコード進行",
+                                           "title":"Amコードを使ったコード進行",
                                            "payload":"using_Am"
                                        },
                                        {
                                            "type":"postback",
-                                           "title":"Cの関連コード",
+                                           "title":"Amの関連コード",
                                            "payload":"other_Am"
                                        },
                                        {
                                            "type":"postback",
-                                           "title":"Cコードのサンプル音",
+                                           "title":"Amコードのサンプル音",
                                            "payload":"music_Am"
                                        }
                                             ]
