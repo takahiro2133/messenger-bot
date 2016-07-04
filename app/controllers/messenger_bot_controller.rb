@@ -75,7 +75,7 @@ class MessengerBotController < ActionController::Base
                     today = "#{weather_today['dateLabel']}の#{city}の天気は「#{weather_today['telop']}」だな。"
                     
                     if weather == '晴れ'
-                          sender.reply({ text: "#{today}こんな晴れた日には、#{music_recommend_hare}でロックンロール！！" })
+                          sender.reply({ text: "#{today}こんな晴れた日には、#{music_recommend_hare.sample}でロックンロール！！" })
                     elsif weather == '曇のち雨'
                           sender.reply({ text: "#{today}こんなしみったれた日はこの曲でも聞いてロックしろ！！" })
                     elsif weather == '雨'
