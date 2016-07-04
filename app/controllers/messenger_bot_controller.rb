@@ -24,6 +24,17 @@ class MessengerBotController < ActionController::Base
     music_recommend_ame = Array[]
     music_recommend_kumori = Array[]
     
+    code = Array.new
+    0.upto(6){|t|
+      code[t] = [code_shinkou[t],code_shinkou_music[t]]
+     }
+    
+    recommend =Array.new
+      0.upto(6){|t|
+      recommend[t] = [music_recommend[t],music_recommend_tab[t],music_recommend_oto[t]]
+     }
+      
+    
             if text == "天気"
                     uri = 'http://weather.livedoor.com/forecast/webservice/json/v1?city=130010'
                     res = JSON.load(open(uri).read)
@@ -47,6 +58,19 @@ class MessengerBotController < ActionController::Base
                     else  
                       sender.reply( text: "天気なんか知るか" )
                     end
+                    
+            elsif text.include?("フレーズ") & text.include?("おすすめ") or text.include?("リフ")
+                recommend_sample = recommend.sample
+                sender.reply(text: "[曲名]\n#{recommend_sample[0]}\n[サンプル音]\n#{recommend_sample[2]}\n[TAB]")
+                sender.reply({ "attachment": {"type": "image","payload": {"url": recommend_sample[1]}}})
+                
+            elsif text.include?("コード進行")
+                code_sample = code.sample
+                sender.reply(text: "#{code_sample[0]}\n[サンプル音]\n#{code_sample[1]}")
+                
+            elsif text.include?("曲") & text.include?("おすすめ")
+                sender.reply(text: "#{music_recommend.sample}")
+                
 #奏法などに対する応答
             elsif text.include?("アルペジオ") && text.end_with?("？") or text == ("アルペジオ")
               sender.reply(text: "アルペジオは、1本1本の弦をバラバラに弾く奏法のことだな！")
