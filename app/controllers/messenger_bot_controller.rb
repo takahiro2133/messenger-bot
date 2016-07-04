@@ -82,7 +82,7 @@ class MessengerBotController < ActionController::Base
                     
                     
                     
-            elsif text.include?("フレーズ") & text.include?("おすすめ")
+            elsif text.include?("フレーズ") & text.include?("おすすめ") or text.include?("リフ")
                 recommend_sample = recommend.sample
                 sender.reply(text: "[曲名]\n#{recommend_sample[0]}\n[サンプル音]\n#{recommend_sample[2]}\n[TAB]")
                 sender.reply({ "attachment": {"type": "image","payload": {"url": recommend_sample[1]}}})
@@ -93,6 +93,34 @@ class MessengerBotController < ActionController::Base
                 
             elsif text.include?("曲") & text.include?("おすすめ")
                 sender.reply(text: "#{music_recommend.sample}")
+            
+                        #奏法などに対する応答
+            elsif text.include?("アルペジオ") && text.end_with?("？") or text == ("アルペジオ")
+              sender.reply(text: "アルペジオは、1本1本の弦をバラバラに弾く奏法のことだな！")
+              
+              sender.reply({ "attachment": {
+              "type": "audio",
+              "payload": {
+                 "url":text_C_music
+                          }
+                                              }
+                           })
+            elsif text.include?("チョーキング") && text.end_with?("？") or text == ("チョーキング")
+               sender.reply(text: "チョーキングは、弦を弾いた後、押し弦を動かして音の高さを変える奏法のことだな！")
+              # sender.reply({ "attachment": {
+              #  "type": "image",
+              #  "payload": {
+              #    "url": "http://mfc-music.com/wp-content/uploads/2015/03/C%E3%82%B3%E3%83%BC%E3%83%89.png"
+              #            }
+              #                                }
+              #              })
+            
+            
+            #気分などに対する応答                
+            elsif text.include?("疲れた") or text.include?("しんどい")
+               sender.reply(text: "今の君は#{code_minor.sample}な気分なんだな！！そんな君にはこのフレーズを伝授しよう")
+               sender.reply(text: "#{code_shinkou.sample}")
+
             else  sender.reply(text: "hello")
             end
       
