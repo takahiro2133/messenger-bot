@@ -96,13 +96,15 @@ class MessengerBotController < ActionController::Base
             elsif text.include?("疲れた") or text.include?("しんどい")
                shinkouminor_sample = shinkouminor.sample
                sender.reply(text: "今の君は#{code_minor.sample}な感じだね〜！今の君を表現するとこんな感じかな")
-               sender.reply(text: "#{shinkouminor_sample[0]}\n#{shinkouminor_sample[1]}")
+               sender.reply(text: "#{shinkouminor_sample[0]}")
+               sender.reply({ "attachment": {"type": "audio","payload": {"url": shinkouminor_sample[1]}}})
               
             
             elsif text.include?("楽しい") or text.include?("嬉しい")
                shinkoumajor_sample = shinkoumajor.sample
                sender.reply(text: "今の君は#{code_major.sample}な気分なんだな！！そんな君にはこのフレーズを伝授しよう")
-               sender.reply(text: "#{shinkoumajor_sample[0]}\n#{shinkoumajor_sample[1]}")
+               sender.reply(text: "#{shinkoumajor_sample[0]}")
+               sender.reply({ "attachment": {"type": "audio","payload": {"url": shinkoumajor_sample[1]}}})
             else
               sender.reply(text: "#{text_random.sample}")
             end
