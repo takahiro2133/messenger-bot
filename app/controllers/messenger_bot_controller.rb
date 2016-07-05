@@ -15,9 +15,9 @@ class MessengerBotController < ActionController::Base
     code_shinkou_music = Array["aaa","bbb","ccc"]
 
     code_shinkou_major = Array["C-G-Am-Em-F-C-F-G","C-G-Am-G-F-E7-Am-D7-G7","C-A-Dm-G7","C-Am-F-G7","C-Em-Dm-C"]
-    code_shinkou_major_music = Array[]
+    code_shinkou_major_music = Array["a","b","c","d","e"]
     code_shinkou_minor = Array["Am-Dm-G-Am","Am-Dm-E7-Am","Am-G-F-Em-Dm-C-Bm7-5-E7","Am-Dm-Em-Am","Am-Dm-Am-E"]
-    code_shinkou_minor_music = Array[]
+    code_shinkou_minor_music = Array["a","b","c","d","e"]
     flase_recommend = Array[]
 
     music_recommend_hare = Array["Back in Black(AC/DC)","Brainstorm(Arctic Monkeys)","Loney Boy(The Loney Boy)","Smells Like Tenn Spirit(Nirvana)","Voodoo Child (Jimi Hendrix)","Another number(The Cribes)","Take The Long Road And Walk It(The Music)","Immigrant Song(Jimi Hendrix)","12:51(The Strokes)","Supersonic(Oasis)","Can't Stop(Red Hot Chili Peppers)"]
