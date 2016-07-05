@@ -30,7 +30,7 @@ class MessengerBotController < ActionController::Base
      }
     
     recommend =Array.new
-      0.upto(6){|t|
+      0.upto(7){|t|
       recommend[t] = [music_recommend[t],music_recommend_tab[t],music_recommend_oto[t]]
      }
       
