@@ -6,17 +6,17 @@ class MessengerBotController < ActionController::Base
   def message(event,sender)
     text = event['message']['text']
     text_random = Array["ギターって...いいよな", "ギター練習したのか？"]
-    music_recommend = Array["Layla(Eric Clapton)", "Are You Gonna Go My Way（Lenny Kravitz)", "Walk This Way（Aerosmith)","20th Century Boy（T.Rex)", "Whole Lotta Love（Led Zeppelin）", "Helter Skelter（The Beatles）","Painkiller（Judas Priest）","歌舞伎町の女王（椎名林檎）"]
-    music_recommend_tab = Array["https://www.dropbox.com/home?preview=SP32-20041117-174117.gif", "http://bandbigginer.boo.jp/wp-content/uploads/20120213areyougonnagomyway.jpg", "http://bandbigginer.boo.jp/wp-content/uploads/20120213walkthisway.jpg","http://bandbigginer.boo.jp/wp-content/uploads/2012021320thcenturyboy.jpg","http://bandbigginer.boo.jp/wp-content/uploads/20120213wholelottalove.jpg", "http://bandbigginer.boo.jp/wp-content/uploads/20120213helterskelter.jpg", "http://bandbigginer.boo.jp/wp-content/uploads/20120213painkiller.jpg", "歌舞伎町の女王（椎名林檎）"]
-    music_recommend_oto = Array["A","B","C","D","E","F","G"]
+    music_recommend = Array["Are You Gonna Go My Way（Lenny Kravitz)", "Walk This Way（Aerosmith)","20th Century Boy（T.Rex)", "Whole Lotta Love（Led Zeppelin）", "Helter Skelter（The Beatles）","Painkiller（Judas Priest）","歌舞伎町の女王（椎名林檎）"]
+    music_recommend_tab = Array["http://bandbigginer.boo.jp/wp-content/uploads/20120213areyougonnagomyway.jpg", "http://bandbigginer.boo.jp/wp-content/uploads/20120213walkthisway.jpg","http://bandbigginer.boo.jp/wp-content/uploads/2012021320thcenturyboy.jpg","http://bandbigginer.boo.jp/wp-content/uploads/20120213wholelottalove.jpg", "http://bandbigginer.boo.jp/wp-content/uploads/20120213helterskelter.jpg", "http://bandbigginer.boo.jp/wp-content/uploads/20120213painkiller.jpg", "http://bandbigginer.boo.jp/wp-content/uploads/02120213kabuki.jpg"]
+    music_recommend_oto = Array["A","http://kusapan.com/fbmbot/walk%20this%20way.mp3","C","D","E","F","G"]
     code_minor = Array["Am", "Bm", "Cm", "Dm", "Em", "Fm", "Gm"]
     code_major = Array["A", "B", "C", "D", "E", "F", "G"]
     code_shinkou = Array["D - A - Bm - F#m - G - D - G - A", "F - G - Em - Am", "Am - F - G - C"]
     code_shinkou_music = Array["aaa","bbb","ccc"]
 
-    code_shinkou_major = Array["C-G-Am-Em-F-C-F-G",""]
+    code_shinkou_major = Array["C-G-Am-Em-F-C-F-G","C-G-Am-G-F-E7-Am-D7-G7","C-A-Dm-G7","C-Am-F-G7","C-Em-Dm-C"]
     code_shinkou_major_music = Array[]
-    code_shinkou_minor = Array["Am-Dm-G-Am","Am-Dm-E7-Am","Am-G-F-Em-Dm-C-Bm7-5-E7"]
+    code_shinkou_minor = Array["Am-Dm-G-Am","Am-Dm-E7-Am","Am-G-F-Em-Dm-C-Bm7-5-E7","Am-Dm-Em-Am","Am-Dm-Am-E"]
     code_shinkou_minor_music = Array[]
     flase_recommend = Array[]
 
@@ -62,7 +62,7 @@ class MessengerBotController < ActionController::Base
             elsif text.include?("フレーズ") & text.include?("おすすめ") or text.include?("リフ")
                 recommend_sample = recommend.sample
                 sender.reply(text: "[曲名]\n#{recommend_sample[0]}\n[サンプル音]\n#{recommend_sample[2]}\n[TAB]")
-                sender.reply({ "attachment": {"type": "image","payload": {"url": recommend_sample[1]}}})
+                sender.reply({ "attachment": {"type": "audio","payload": {"url": recommend_sample[1]}}})
                 
             elsif text.include?("コード進行")
                 code_sample = code.sample
@@ -84,7 +84,7 @@ class MessengerBotController < ActionController::Base
                sender.reply(text: "#{code_shinkou.sample}")
             
             elsif text.include?("楽しい") or text.include?("嬉しい")
-               sender.reply(text: "今の君は#{code_minor.sample}な気分なんだな！！そんな君にはこのフレーズを伝授しよう")
+               sender.reply(text: "今の君は#{code_major.sample}な気分なんだな！！そんな君にはこのフレーズを伝授しよう")
                sender.reply(text: "#{code_shinkou.sample}")
             else
               sender.reply(text: "hello")
