@@ -61,9 +61,10 @@ class MessengerBotController < ActionController::Base
                     
             elsif text.include?("フレーズ") & text.include?("おすすめ") or text.include?("リフ")
                 recommend_sample = recommend.sample
-                sender.reply(text: "[曲名]\n#{recommend_sample[0]}\n[サンプル音]\n#{recommend_sample[2]}\n[TAB]")
-                sender.reply({ "attachment": {"type": "audio","payload": {"url": recommend_sample[1]}}})
-                
+                sender.reply(text: "[曲名]\n#{recommend_sample[0]}\n[TAB]")
+                sender.reply({ "attachment": {"type": "url","payload": {"url": recommend_sample[1]}}})
+                sender.reply({ "attachment": {"type": "audio","payload": {"url": recommend_sample[2]}}})
+            
             elsif text.include?("コード進行")
                 code_sample = code.sample
                 sender.reply(text: "#{code_sample[0]}\n[サンプル音]\n#{code_sample[1]}")
