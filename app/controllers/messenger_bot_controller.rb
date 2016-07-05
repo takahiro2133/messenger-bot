@@ -44,7 +44,7 @@ class MessengerBotController < ActionController::Base
      }
       
     
-            if text == "天気"
+            if text.include?("天気")
                     uri = 'http://weather.livedoor.com/forecast/webservice/json/v1?city=130010'
                     res = JSON.load(open(uri).read)
                     weather_today = res['forecasts'][0]
@@ -56,6 +56,8 @@ class MessengerBotController < ActionController::Base
                           sender.reply({ text: "#{today}こんな晴れた日には、でロックンロール！！" })
                     elsif weather == "曇のち雨"
                           sender.reply({ text: "#{today}こんなしみったれた日はこの曲でも聞いてロックしろ！！" })
+                    elsif weather == "晴のち曇"
+                          sender.reply({ text: "#{today}こんな日は#{music_recommend_hare.sample}なんかいいんじゃないか！" })
                     elsif weather == "雨"
                           sender.reply({ text: "#{today}こんな日はこの曲でも聞いてロックしろ！！" })
                     elsif weather == "曇り"
@@ -93,7 +95,7 @@ class MessengerBotController < ActionController::Base
                shinkouminor_sample = shinkouminor.sample
                sender.reply(text: "今の君は#{code_minor.sample}な感じだね〜！今の君を表現するとこんな感じかな")
                sender.reply(text: "#{shinkouminor_sample[0]}\n#{shinkouminor_sample[1]}")
-               
+              
             
             elsif text.include?("楽しい") or text.include?("嬉しい")
                shinkoumajor_sample = shinkoumajor.sample
