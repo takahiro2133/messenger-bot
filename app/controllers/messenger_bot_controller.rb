@@ -5,10 +5,10 @@ class MessengerBotController < ActionController::Base
   
   def message(event,sender)
     text = event['message']['text']
-    text_random = Array["ギターって...いいよな", "ギター練習したのか？"]
-    music_recommend = Array["Are You Gonna Go My Way（Lenny Kravitz)", "Walk This Way（Aerosmith)","20th Century Boy（T.Rex)", "Whole Lotta Love（Led Zeppelin）", "Helter Skelter（The Beatles）","Painkiller（Judas Priest）","歌舞伎町の女王（椎名林檎）","Long Train Running(The Doobie Brothers)"]
+    text_random = Array["エレキギターの世界は常識がなく自分で決めなくてはならない", "どんなことでも主流に巻き込まれないとダメだろう","音楽って流行りがあるようで実はもうなくなっちゃったんだ","フェスのプライオリティは音楽ではなく人","ギターの楽しさはもう証明されている"]
+    music_recommend = Array["Walk This Way（Aerosmith)","20th Century Boy（T.Rex)", "Helter Skelter（The Beatles）","Painkiller（Judas Priest）","歌舞伎町の女王（椎名林檎）","Long Train Running(The Doobie Brothers)"]
     music_recommend_tab = Array["http://bandbigginer.boo.jp/wp-content/uploads/20120213areyougonnagomyway.jpg", "http://bandbigginer.boo.jp/wp-content/uploads/20120213walkthisway.jpg","http://bandbigginer.boo.jp/wp-content/uploads/2012021320thcenturyboy.jpg","http://bandbigginer.boo.jp/wp-content/uploads/20120213wholelottalove.jpg", "http://bandbigginer.boo.jp/wp-content/uploads/20120213helterskelter.jpg", "http://bandbigginer.boo.jp/wp-content/uploads/20120213painkiller.jpg", "http://bandbigginer.boo.jp/wp-content/uploads/02120213kabuki.jpg","https://guitarsenal.files.wordpress.com/2011/09/the-doobie-brothers-long-train-runnin.png"]
-    music_recommend_oto = Array["A","http://kusapan.com/fbmbot/walk%20this%20way.mp3","http://kusapan.com/fbmbot/21th.mp3","D","http://kusapan.com/fbmbot/beatles.mp3","http://kusapan.com/fbmbot/painkiler.mp3","http://kusapan.com/fbmbot/ringo.mp3","http://kusapan.com/fbmbot/long%20train.mp3"]
+    music_recommend_oto = Array["http://kusapan.com/fbmbot/walk%20this%20way.mp3","http://kusapan.com/fbmbot/21th.mp3","http://kusapan.com/fbmbot/beatles.mp3","http://kusapan.com/fbmbot/painkiler.mp3","http://kusapan.com/fbmbot/ringo.mp3","http://kusapan.com/fbmbot/long%20train.mp3"]
     code_minor = Array["Am", "Bm", "Cm", "Dm", "Em", "Fm", "Gm", "F#m", "C#m", "G#m"]
     code_major = Array["A", "B", "C", "D", "E", "F", "G"]
     code_shinkou = Array["D-A-Bm-F#m-G-D-G-A", "F-G-Em-Am", "Am-F-G-C", "C-G-Am-Em-F-C-F-G","C-G-Am-G-F-E7-Am-D7-G7","C-A-Dm-G7","C-Am-F-G7","C-Em-Dm-C","Am-Dm-G-Am","Am-Dm-E7-Am","Am-G-F-Em-Dm-C-Bm7-5-E7","Am-Dm-Em-Am","Am-Dm-Am-E"]
@@ -39,7 +39,7 @@ class MessengerBotController < ActionController::Base
      }
     
     recommend =Array.new
-    0.upto(7){|t|
+    0.upto(5){|t|
       recommend[t] = [music_recommend[t],music_recommend_tab[t],music_recommend_oto[t]]
      }
       
@@ -53,19 +53,19 @@ class MessengerBotController < ActionController::Base
                     today = "#{weather_today['dateLabel']}の#{city}の天気は「#{weather_today['telop']}」だな。"
                     
                     if weather == "晴れ"
-                          sender.reply({ text: "#{today}こんな晴れた日には、でロックンロール！！" })
+                          sender.reply({ text: "#{today}こんな晴れた日には、#{music_recommend_hare.sample}でロックンロール！！" })
                     elsif weather == "曇のち雨"
-                          sender.reply({ text: "#{today}こんなしみったれた日はこの曲でも聞いてロックしろ！！" })
+                          sender.reply({ text: "#{today}こんなしみったれた日は#{music_recommend_hare.sample}でも聞いてロックしろ！！" })
                     elsif weather == "晴のち曇"
                           sender.reply({ text: "#{today}こんな日は#{music_recommend_hare.sample}なんかいいんじゃないか！" })
                     elsif weather == "曇のち晴"
                           sender.reply({ text: "#{today}こんな日は#{music_recommend_hare.sample}なんかいいんじゃないか！" })
                     elsif weather == "雨"
-                          sender.reply({ text: "#{today}こんな日はこの曲でも聞いてロックしろ！！" })
+                          sender.reply({ text: "#{today}こんな日は#{music_recommend_hare.sample}でも聞いてロックしろ！！" })
                     elsif weather == "曇り"
                           sender.reply({ text: "#{today}こんな日は#{music_recommend_hare.sample}でも聞いてロックしろ！！" })
                     elsif weather == "曇時々雨"
-                          sender.reply({ text: "#{today}こんな日はこの曲でも聞いてロックしろ！！" })
+                          sender.reply({ text: "#{today}こんな日は#{music_recommend_hare.sample}でも聞いてロックしろ！！" })
                  　  elsif weather == "曇時々晴"
                       　　sender.reply({ text: "#{today}"})
                     else  
@@ -104,7 +104,7 @@ class MessengerBotController < ActionController::Base
                sender.reply(text: "今の君は#{code_major.sample}な気分なんだな！！そんな君にはこのフレーズを伝授しよう")
                sender.reply(text: "#{shinkoumajor_sample[0]}\n#{shinkoumajor_sample[1]}")
             else
-              sender.reply(text: "hello")
+              sender.reply(text: "#{text_random.sample}")
             end
   end
   
