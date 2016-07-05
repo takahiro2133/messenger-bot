@@ -14,10 +14,10 @@ class MessengerBotController < ActionController::Base
     code_shinkou = Array["D-A-Bm-F#m-G-D-G-A", "F-G-Em-Am", "Am-F-G-C", "C-G-Am-Em-F-C-F-G","C-G-Am-G-F-E7-Am-D7-G7","C-A-Dm-G7","C-Am-F-G7","C-Em-Dm-C","Am-Dm-G-Am","Am-Dm-E7-Am","Am-G-F-Em-Dm-C-Bm7-5-E7","Am-Dm-Em-Am","Am-Dm-Am-E"]
     code_shinkou_music = Array["aaa","bbb","ccc"]
 
-    code_shinkou_major = Array["C-G-Am-Em-F-C-F-G","C-G-Am-G-F-E7-Am-D7-G7","C-A-Dm-G7","C-Am-F-G7","C-Em-Dm-C"]
-    code_shinkou_major_music = Array["a","b","c","d","e"]
-    code_shinkou_minor = Array["Am-Dm-G-Am","Am-Dm-E7-Am","Am-G-F-Em-Dm-C-Bm7-5-E7","Am-Dm-Em-Am","Am-Dm-Am-E"]
-    code_shinkou_minor_music = Array["a","b","c","d","e"]
+    code_shinkou_major = Array["A-Fm-D-E","C-D-Em-G","C-G-Am-Em-F-C-F-G","Fm-A-B-E","Cadd9-G-D-Em7"]
+    code_shinkou_major_music = Array["http://kusapan.com/fbmbot/AFmDE.mp3","http://kusapan.com/fbmbot/CDEmG.mp3","http://kusapan.com/fbmbot/CGAmEmFCFG.mp3","http://kusapan.com/fbmbot/FmABE.mp3","http://kusapan.com/fbmbot/talar.mp3"]
+    code_shinkou_minor = Array["Am-Em-F-C","Am-Dm-E7-Am","Am-G-F-Em-Dm-C-Bm7-E7","D-A-Bm-Em-Fm-G-D-G-A","A-E-F#m7-E-DM7-C#m7-Bm7-E"]
+    code_shinkou_minor_music = Array["http://kusapan.com/fbmbot/AmEmFC.mp3","http://kusapan.com/fbmbot/AmDmE7Am.mp3","http://kusapan.com/fbmbot/AmGFEmDmC.mp3","http://kusapan.com/fbmbot/DABmEmFmGDGA.mp3","http://kusapan.com/fbmbot/yamashita.mp3"]
 
     music_recommend_hare = Array["Back in Black(AC/DC)","Brainstorm(Arctic Monkeys)","Loney Boy(The Loney Boy)","Smells Like Tenn Spirit(Nirvana)","Voodoo Child (Jimi Hendrix)","Another number(The Cribes)","Take The Long Road And Walk It(The Music)","Immigrant Song(Jimi Hendrix)","12:51(The Strokes)","Supersonic(Oasis)","Can't Stop(Red Hot Chili Peppers)"]
     music_recommend_ame = Array[]
