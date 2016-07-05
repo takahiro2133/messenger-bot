@@ -28,10 +28,10 @@ class MessengerBotController < ActionController::Base
       shinkoumajor[t] = [code_shinkou_major[t],code_shinkou_major_music[t]]
      }
      
-    #code_shinkou_min = Array.new
-    #0.upto(4){|t|
-    #  code[t] = [code_shinkou_minor[t],code_shinkou_minor_music[t]]
-    # }
+    shinkouminor = Array.new
+    0.upto(4){|t|
+      shinkouminor[t] = [code_shinkou_minor[t],code_shinkou_minor_music[t]]
+     }
      
     code = Array.new
     0.upto(6){|t|
@@ -90,9 +90,9 @@ class MessengerBotController < ActionController::Base
             
 #気分などに対する応答                
             elsif text.include?("疲れた") or text.include?("しんどい")
-               #code_shinkou_min_sample = code_shinkou_min.sample
+               code_shinkou_min_sample = shinkouminer.sample
                sender.reply(text: "今の君は#{code_minor.sample}な感じだね〜！今の君を表現するとこんな感じかな")
-               #sender.reply(text: "#{code_shinkou_min_sample[0]}\n#{code_shinkou_min_sample[1]}")
+               sender.reply(text: "#{code_shinkou_min_sample[0]}\n#{code_shinkou_min_sample[1]}")
                
             
             elsif text.include?("楽しい") or text.include?("嬉しい")
