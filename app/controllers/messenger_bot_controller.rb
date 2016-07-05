@@ -23,10 +23,10 @@ class MessengerBotController < ActionController::Base
     music_recommend_ame = Array[]
     music_recommend_kumori = Array[]
     
-    shinkoumajor = Array.new
-    0.upto(4){|t|
-      code[t] = [code_shinkou_major[t],code_shinkou_major_music[t]]
-     }
+    #shinkoumajor = Array.new
+    #0.upto(4){|t|
+    #  code[t] = [code_shinkou_major[t],code_shinkou_major_music[t]]
+    # }
      
     #code_shinkou_min = Array.new
     #0.upto(4){|t|
@@ -96,9 +96,9 @@ class MessengerBotController < ActionController::Base
                
             
             elsif text.include?("楽しい") or text.include?("嬉しい")
-               shinkoumajor_sample = shinkoumajor.sample
+               #shinkoumajor_sample = shinkoumajor.sample
                sender.reply(text: "今の君は#{code_major.sample}な気分なんだな！！そんな君にはこのフレーズを伝授しよう")
-               sender.reply(text: "#{shinkoumajor_sample[0]}\n#{shinkoumajor_sample[1]}")
+               #sender.reply(text: "#{shinkoumajor_sample[0]}\n#{shinkoumajor_sample[1]}")
             else
               sender.reply(text: "hello")
             end
