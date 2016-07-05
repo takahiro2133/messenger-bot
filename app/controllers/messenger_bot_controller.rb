@@ -90,7 +90,7 @@ class MessengerBotController < ActionController::Base
             
 #気分などに対する応答                
             elsif text.include?("疲れた") or text.include?("しんどい")
-               shinkouminor_sample = shinkouminer.sample
+               shinkouminor_sample = shinkouminor.sample
                sender.reply(text: "今の君は#{code_minor.sample}な感じだね〜！今の君を表現するとこんな感じかな")
                sender.reply(text: "#{shinkouminor_sample[0]}\n#{shinkouminor_sample[1]}")
                
