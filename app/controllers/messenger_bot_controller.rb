@@ -40,7 +40,7 @@ class MessengerBotController < ActionController::Base
      }
     
     recommend =Array.new
-      0.upto(7){|t|
+    0.upto(7){|t|
       recommend[t] = [music_recommend[t],music_recommend_tab[t],music_recommend_oto[t]]
      }
       
@@ -93,13 +93,13 @@ class MessengerBotController < ActionController::Base
             elsif text.include?("疲れた") or text.include?("しんどい")
                code_shinkou_min_sample = code_shinkou_min.sample
                sender.reply(text: "今の君は#{code_minor.sample}な感じだね〜！今の君を表現するとこんな感じかな")
-               sender.reply(text: "#{code_shinkou_min_sample[0]}")
+               sender.reply(text: "#{code_shinkou_min_sample[0]}\n#{code_shinkou_min_sample[1]}")
                
             
             elsif text.include?("楽しい") or text.include?("嬉しい")
                code_shinkou_maj_sample = code_shinkou_maj.sample
                sender.reply(text: "今の君は#{code_major.sample}な気分なんだな！！そんな君にはこのフレーズを伝授しよう")
-               sender.reply(text: "#{code_shinkou_maj_sample[0]}")
+               sender.reply(text: "#{code_shinkou_maj_sample[0]}\n#{code_shinkou_maj_sample[1]}")
             else
               sender.reply(text: "hello")
             end
