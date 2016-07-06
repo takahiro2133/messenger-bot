@@ -115,7 +115,7 @@ class MessengerBotController < ActionController::Base
             
             elsif text.include?("楽しい") or text.include?("嬉しい")
                shinkoumajor_sample = shinkoumajor.sample
-               sender.reply(text: "今の君は#{code_major.sample}な感じだね！！このコード進行がぴったしかもしれない")
+               sender.reply(text: "いいね〜そしたら特別にこのコード進行を教えようかな")
                sender.reply(text: "#{shinkoumajor_sample[0]}")
                sender.reply({ "attachment": {"type": "audio","payload": {"url": shinkoumajor_sample[1]}}})
                
