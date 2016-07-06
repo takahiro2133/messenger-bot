@@ -84,7 +84,7 @@ class MessengerBotController < ActionController::Base
             
             elsif text.include?("コード進行")
                 code_sample = code.sample
-                sender.reply(text: "#{code_sample[0]}")
+                sender.reply(text: "こんなのはどうだい？\n#{code_sample[0]}")
                 sender.reply({ "attachment": {"type": "audio","payload": {"url": code_sample[1]}}})
                 
             elsif text.include?("曲") & text.include?("おすすめ")
@@ -92,10 +92,16 @@ class MessengerBotController < ActionController::Base
                 
 #奏法などに対する応答
             elsif text.include?("アルペジオ") && text.end_with?("？") or text == ("アルペジオ")
-              sender.reply(text: "アルペジオは、1本1本の弦をバラバラに弾く奏法のことだな！")
+              sender.reply(text: "1本1本の弦をバラバラに弾く奏法のことだな！")
             
             elsif text.include?("チョーキング") && text.end_with?("？") or text == ("チョーキング")
-              sender.reply(text: "チョーキングは、弦を弾いた後、押し弦を動かして音の高さを変える奏法のことだな！")
+              sender.reply(text: "弦を弾いた後、押し弦を動かして音の高さを変える奏法のことだな！")
+              
+            elsif text.include?("ハンマリング") && text.end_with?("？") or text == ("ハンマリング")
+              sender.reply(text: "弦を押さえてピッキングせずに音を出すテクニックのことだな！")
+            
+            elsif text.include?("プリング") && text.end_with?("？") or text == ("プリング")
+              sender.reply(text: "指板上の指で弦を引っ掻いて演奏することだな！")
             
 #気分などに対する応答                
             elsif text.include?("疲れた") or text.include?("しんどい")
