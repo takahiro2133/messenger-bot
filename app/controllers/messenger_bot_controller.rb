@@ -224,14 +224,14 @@ class MessengerBotController < ActionController::Base
         sender.reply({ "attachment": {"type": "audio","payload": {"url": "http://kusapan.com/fbmbot/Cコード.mp3"}}})
         
       when "using_Am"
-        sender.reply(text: "#{code_C.sample}")
-        sender.reply({ "attachment": {"type": "audio","payload": {"url": "http://kusapan.com/fbmbot/CGAmEFGFA.mp3"}}})
+        sender.reply(text: "Am-G-F-Em-Dm-C-Bm7-E7")
+        sender.reply({ "attachment": {"type": "audio","payload": {"url": "http://kusapan.com/fbmbot/AmDmE7Am.mp3"}}})
       when "music_Am"
         sender.reply({ "attachment": {"type": "audio","payload": {"url": "http://kusapan.com/fbmbot/Cコード.mp3"}}})
         
       when "using_G"
-        sender.reply(text: "#{code_C.sample}")
-        sender.reply({ "attachment": {"type": "audio","payload": {"url": "http://kusapan.com/fbmbot/CGAmEFGFA.mp3"}}})
+        sender.reply(text: "Cadd9-G-D-Em7")
+        sender.reply({ "attachment": {"type": "audio","payload": {"url": "http://kusapan.com/fbmbot/talar.mp3"}}})
       when "music_G"
         sender.reply({ "attachment": {"type": "audio","payload": {"url": "http://kusapan.com/fbmbot/Cコード.mp3"}}})
         
