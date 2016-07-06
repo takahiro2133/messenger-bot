@@ -7,6 +7,8 @@ class MessengerBotController < ActionController::Base
     text = event['message']['text']
     
     text_C  = 'http://mfc-music.com/wp-content/uploads/2015/03/C%E3%82%B3%E3%83%BC%E3%83%89.png'
+    text_G  = 'http://mfc-music.com/wp-content/uploads/2015/03/G%E3%82%B3%E3%83%BC%E3%83%89.png'
+    text_Am = 'http://mfc-music.com/wp-content/uploads/2015/03/Am%E3%82%B3%E3%83%BC%E3%83%89.png'
     
     text_random = Array["エレキギターの世界は常識がなく自分で決めなくてはならない", "どんなことでも主流に巻き込まれないとダメだろう","音楽って流行りがあるようで実はもうなくなっちゃったんだ","フェスのプライオリティは音楽ではなく人","ギターの楽しさはもう証明されている"]
     music_recommend = Array["Walk This Way（Aerosmith)","20th Century Boy（T.Rex)", "Helter Skelter（The Beatles）","Painkiller（Judas Priest）","歌舞伎町の女王（椎名林檎）","Long Train Running(The Doobie Brothers)"]
@@ -143,6 +145,56 @@ class MessengerBotController < ActionController::Base
                                    }
                                  }
                              })
+            elsif text == "Amコード" or text == "Amコード" or text == "Am" or text == "Am"
+                sender.reply({ "attachment":{
+                 "type":"template",
+                         "payload":{
+                             "template_type":"generic",
+                             "elements":[
+                               {  "title":"Amコードの押さえ方",
+                                  "image_url":text_Am,
+                                  "buttons":[
+                                       {
+                                           "type":"postback",
+                                           "title":"Amコードを使ったコード進行",
+                                           "payload":"using_Am"
+                                       },
+                                       {
+                                           "type":"postback",
+                                           "title":"Amコードのサンプル音",
+                                           "payload":"music_Am"
+                                       }
+                                            ]
+                              }
+                                ]       
+                                   }
+                                 }
+                             })
+            elsif text == "Gコード" or text == "gコード" or  text == "G" or text == "g"
+               sender.reply({ "attachment":{
+                 "type":"template",
+                         "payload":{
+                             "template_type":"generic",
+                             "elements":[
+                               {  "title":"Gコードの押さえ方",
+                                  "image_url":text_G,
+                                  "buttons":[
+                                       {
+                                           "type":"postback",
+                                           "title":"Gコードを使ったコード進行",
+                                           "payload":"using_g"
+                                       },
+                                       {
+                                           "type":"postback",
+                                           "title":"Gコードのサンプル音",
+                                           "payload":"music_g"
+                                       }
+                                            ]
+                              }
+                                ]       
+                                   }
+                                 }
+                             })
             else
               sender.reply(text: "#{text_random.sample}")
             end
@@ -157,6 +209,12 @@ class MessengerBotController < ActionController::Base
     code_C_music = Array["http://kusapan.com/fbmbot/CGAmEFCFG.mp3"]
 　　text_C  = 'http://mfc-music.com/wp-content/uploads/2015/03/C%E3%82%B3%E3%83%BC%E3%83%89.png'
 　　text_C_music = 'https://www.dropbox.com/home?preview=C%E3%82%B3%E3%83%BC%E3%83%89.mp3'
+　　text_G  = 'http://mfc-music.com/wp-content/uploads/2015/03/G%E3%82%B3%E3%83%BC%E3%83%89.png'
+　　code_G = Array[]
+　　code_G_music = Array[]
+    text_Am = 'http://mfc-music.com/wp-content/uploads/2015/03/Am%E3%82%B3%E3%83%BC%E3%83%89.png'
+    code_Am = Array[]
+    code_Am_music = Array[]
     payload = event["postback"]["payload"]
 　　  case payload
       when "using_c"
@@ -164,6 +222,20 @@ class MessengerBotController < ActionController::Base
         sender.reply({ "attachment": {"type": "audio","payload": {"url": "http://kusapan.com/fbmbot/CGAmEFGFA.mp3"}}})
       when "music_c"
         sender.reply({ "attachment": {"type": "audio","payload": {"url": "http://kusapan.com/fbmbot/Cコード.mp3"}}})
+        
+      when "using_Am"
+        sender.reply(text: "#{code_C.sample}")
+        sender.reply({ "attachment": {"type": "audio","payload": {"url": "http://kusapan.com/fbmbot/CGAmEFGFA.mp3"}}})
+      when "music_Am"
+        sender.reply({ "attachment": {"type": "audio","payload": {"url": "http://kusapan.com/fbmbot/Cコード.mp3"}}})
+        
+      when "using_G"
+        sender.reply(text: "#{code_C.sample}")
+        sender.reply({ "attachment": {"type": "audio","payload": {"url": "http://kusapan.com/fbmbot/CGAmEFGFA.mp3"}}})
+      when "music_G"
+        sender.reply({ "attachment": {"type": "audio","payload": {"url": "http://kusapan.com/fbmbot/Cコード.mp3"}}})
+        
+      
       end
   end
   
