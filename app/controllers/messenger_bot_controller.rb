@@ -229,10 +229,10 @@ class MessengerBotController < ActionController::Base
       when "music_Am"
         sender.reply({ "attachment": {"type": "audio","payload": {"url": "http://kusapan.com/fbmbot/Cコード.mp3"}}})
         
-      when "using_G"
+      when "using_g"
         sender.reply(text: "Cadd9-G-D-Em7")
         sender.reply({ "attachment": {"type": "audio","payload": {"url": "http://kusapan.com/fbmbot/talar.mp3"}}})
-      when "music_G"
+      when "music_g"
         sender.reply({ "attachment": {"type": "audio","payload": {"url": "http://kusapan.com/fbmbot/Cコード.mp3"}}})
         
       
