@@ -14,8 +14,8 @@ class MessengerBotController < ActionController::Base
     music_recommend = Array["Walk This Way（Aerosmith)","20th Century Boy（T.Rex)", "Helter Skelter（The Beatles）","Painkiller（Judas Priest）","歌舞伎町の女王（椎名林檎）","Long Train Running(The Doobie Brothers)"]
     music_recommend_tab = Array["http://bandbigginer.boo.jp/wp-content/uploads/20120213walkthisway.jpg","http://bandbigginer.boo.jp/wp-content/uploads/2012021320thcenturyboy.jpg", "http://bandbigginer.boo.jp/wp-content/uploads/20120213helterskelter.jpg", "http://bandbigginer.boo.jp/wp-content/uploads/20120213painkiller.jpg", "http://bandbigginer.boo.jp/wp-content/uploads/02120213kabuki.jpg","https://guitarsenal.files.wordpress.com/2011/09/the-doobie-brothers-long-train-runnin.png"]
     music_recommend_oto = Array["http://kusapan.com/fbmbot/walk%20this%20way.mp3","http://kusapan.com/fbmbot/21th.mp3","http://kusapan.com/fbmbot/beatles.mp3","http://kusapan.com/fbmbot/painkiler.mp3","http://kusapan.com/fbmbot/ringo.mp3","http://kusapan.com/fbmbot/long%20train.mp3"]
-    code_minor = Array["Am", "Bm", "Cm", "Dm", "Em", "Fm", "Gm", "F#m", "C#m", "G#m"]
-    code_major = Array["A", "B", "C", "D", "E", "F", "G"]
+    code_minor = Array["Am",]
+    code_major = Array["C", "D", "E", "F", "G"]
     code_shinkou = Array["Am-Em-F-C","Am-Dm-E7-Am","Am-G-F-Em-Dm-C-Bm7-E7","D-A-Bm-Em-Fm-G-D-G-A","A-E-F#m7-E-DM7-C#m7-Bm7-E","A-Fm-D-E","C-D-Em-G","C-G-Am-Em-F-C-F-G","Fm-A-B-E","Cadd9-G-D-Em7"]
     code_shinkou_music = Array["http://kusapan.com/fbmbot/AmEmFC.mp3","http://kusapan.com/fbmbot/AmDmE7Am.mp3","http://kusapan.com/fbmbot/AmGFEmDmC.mp3","http://kusapan.com/fbmbot/DABmEmFmGDGA.mp3","http://kusapan.com/fbmbot/yamashita.mp3","http://kusapan.com/fbmbot/AFmDE.mp3","http://kusapan.com/fbmbot/CDEmG.mp3","http://kusapan.com/fbmbot/CGAmEFGFA.mp3","http://kusapan.com/fbmbot/FmABE.mp3","http://kusapan.com/fbmbot/talar.mp3"]
     
@@ -108,14 +108,14 @@ class MessengerBotController < ActionController::Base
 #気分などに対する応答                
             elsif text.include?("疲れた") or text.include?("しんどい")
                shinkouminor_sample = shinkouminor.sample
-               sender.reply(text: "今の君は#{code_minor.sample}な感じだね〜！今の君を表現するとこんな感じかな")
+               sender.reply(text: "今の君を表現すると....こんな感じかな")
                sender.reply(text: "#{shinkouminor_sample[0]}")
                sender.reply({ "attachment": {"type": "audio","payload": {"url": shinkouminor_sample[1]}}})
               
             
             elsif text.include?("楽しい") or text.include?("嬉しい")
                shinkoumajor_sample = shinkoumajor.sample
-               sender.reply(text: "今の君は#{code_major.sample}な気分なんだな！！そんな君にはこのフレーズを伝授しよう")
+               sender.reply(text: "今の君は#{code_major.sample}な感じだね！！このコード進行がぴったしかもしれない")
                sender.reply(text: "#{shinkoumajor_sample[0]}")
                sender.reply({ "attachment": {"type": "audio","payload": {"url": shinkoumajor_sample[1]}}})
                
