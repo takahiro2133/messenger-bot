@@ -14,8 +14,8 @@ class MessengerBotController < ActionController::Base
     music_recommend_oto = Array["http://kusapan.com/fbmbot/walk%20this%20way.mp3","http://kusapan.com/fbmbot/21th.mp3","http://kusapan.com/fbmbot/beatles.mp3","http://kusapan.com/fbmbot/painkiler.mp3","http://kusapan.com/fbmbot/ringo.mp3","http://kusapan.com/fbmbot/long%20train.mp3"]
     code_minor = Array["Am", "Bm", "Cm", "Dm", "Em", "Fm", "Gm", "F#m", "C#m", "G#m"]
     code_major = Array["A", "B", "C", "D", "E", "F", "G"]
-    code_shinkou = Array["D-A-Bm-F#m-G-D-G-A", "F-G-Em-Am", "Am-F-G-C", "C-G-Am-Em-F-C-F-G","C-G-Am-G-F-E7-Am-D7-G7","C-A-Dm-G7","C-Am-F-G7","C-Em-Dm-C","Am-Dm-G-Am","Am-Dm-E7-Am","Am-G-F-Em-Dm-C-Bm7-5-E7","Am-Dm-Em-Am","Am-Dm-Am-E"]
-    code_shinkou_music = Array["aaa","bbb","ccc"]
+    code_shinkou = Array["Am-Em-F-C","Am-Dm-E7-Am","Am-G-F-Em-Dm-C-Bm7-E7","D-A-Bm-Em-Fm-G-D-G-A","A-E-F#m7-E-DM7-C#m7-Bm7-E","A-Fm-D-E","C-D-Em-G","C-G-Am-Em-F-C-F-G","Fm-A-B-E","Cadd9-G-D-Em7"]
+    code_shinkou_music = Array["http://kusapan.com/fbmbot/AmEmFC.mp3","http://kusapan.com/fbmbot/AmDmE7Am.mp3","http://kusapan.com/fbmbot/AmGFEmDmC.mp3","http://kusapan.com/fbmbot/DABmEmFmGDGA.mp3","http://kusapan.com/fbmbot/yamashita.mp3","http://kusapan.com/fbmbot/AFmDE.mp3","http://kusapan.com/fbmbot/CDEmG.mp3","http://kusapan.com/fbmbot/CGAmEFGFA.mp3","http://kusapan.com/fbmbot/FmABE.mp3","http://kusapan.com/fbmbot/talar.mp3"]
     
 
     code_shinkou_major = Array["A-Fm-D-E","C-D-Em-G","C-G-Am-Em-F-C-F-G","Fm-A-B-E","Cadd9-G-D-Em7"]
@@ -38,7 +38,7 @@ class MessengerBotController < ActionController::Base
      }
      
     code = Array.new
-    0.upto(6){|t|
+    0.upto(9){|t|
       code[t] = [code_shinkou[t],code_shinkou_music[t]]
      }
     
@@ -84,7 +84,8 @@ class MessengerBotController < ActionController::Base
             
             elsif text.include?("コード進行")
                 code_sample = code.sample
-                sender.reply(text: "#{code_sample[0]}\n[サンプル音]\n#{code_sample[1]}")
+                sender.reply(text: "#{code_sample[0]}")
+                sender.reply({ "attachment": {"type": "audio","payload": {"url": code_sample[1]}}})
                 
             elsif text.include?("曲") & text.include?("おすすめ")
                 sender.reply(text: "#{music_recommend.sample}")
